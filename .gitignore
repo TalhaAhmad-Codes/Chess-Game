@@ -1,0 +1,80 @@
+# ============================
+# C++ - SFML - Visual Studio
+# ============================
+
+# --- Visual Studio user-specific files ---
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# --- Visual Studio build folders ---
+Debug/
+Release/
+x64/
+x86/
+ARM/
+ARM64/
+build/
+bin/
+obj/
+out/
+
+# --- CMake (if you use it) ---
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.cmake
+
+# --- MSBuild / Intermediate files ---
+*.ilk
+*.pdb
+*.idb
+*.ipdb
+*.iobj
+*.tlog
+*.log
+*.lastbuildstate
+*.VC.db
+*.VC.opendb
+*.opendb
+*.db
+
+# --- Compiled binaries ---
+*.exe
+*.dll
+*.lib
+*.a
+*.so
+*.dylib
+
+# --- SFML runtime files (optional) ---
+# If you keep SFML DLLs inside the repo, comment these out
+*.dll
+
+# --- Object files ---
+*.o
+*.obj
+
+# --- Precompiled headers ---
+*.pch
+*.gch
+
+# --- Static analysis / caches ---
+*.cache
+*.tmp
+
+# --- Packaging / archives ---
+*.zip
+*.rar
+*.7z
+
+# --- Logs ---
+*.log
+
+# --- OS files ---
+.DS_Store
+Thumbs.db
+desktop.ini
