@@ -134,6 +134,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Chess.cpp" />
+    <ClCompile Include="Name.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Score.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DomainException.hpp" />
+    <ClInclude Include="Name.hpp" />
+    <ClInclude Include="Player.hpp" />
+    <ClInclude Include="Score.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

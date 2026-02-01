@@ -13,10 +13,51 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Objects">
+      <UniqueIdentifier>{6899a815-139e-4617-bfe8-78190b4e0d36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Player">
+      <UniqueIdentifier>{d5409c32-0870-4817-8bb2-2eb2f286b155}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Misc">
+      <UniqueIdentifier>{98f82b9a-5be6-4ee8-8f22-9dfc11859bcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Misc">
+      <UniqueIdentifier>{197842ec-487a-4105-922f-506504ac47d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects">
+      <UniqueIdentifier>{85bc47d8-9f3c-4074-a0fa-aec1d696219d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\Player">
+      <UniqueIdentifier>{25599223-1bb8-4f19-b662-f81f8bd27ff3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Chess.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Name.cpp">
+      <Filter>Source Files\Objects\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Score.cpp">
+      <Filter>Source Files\Objects\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Objects\Player</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Name.hpp">
+      <Filter>Header Files\Objects\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="DomainException.hpp">
+      <Filter>Header Files\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Score.hpp">
+      <Filter>Header Files\Objects\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.hpp">
+      <Filter>Header Files\Objects\Player</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
