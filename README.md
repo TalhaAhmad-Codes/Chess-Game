@@ -94,6 +94,71 @@ Example file formats:
 
 ---
 
+## 📂 Folder Structure
+
+```
+Chess/
+│
+├── assets/
+│   ├── fonts/
+│   │   └── arial.ttf
+│   ├── textures/
+│   │   └── chess_pieces.png
+│   ├── sounds/
+│   │   └── move.wav
+│   └── data/
+│       ├── saves/
+│       │   └── game1.json
+│       └── config.json
+│
+├── include/
+│   ├── core/
+│   │   ├── Game.hpp
+│   │   └── Application.hpp
+│   │
+│   ├── board/
+│   │   ├── Board.hpp
+│   │   ├── Tile.hpp
+│   │   └── Position.hpp
+│   │
+│   ├── pieces/
+│   │   ├── Piece.hpp
+│   │   ├── King.hpp
+│   │   ├── Queen.hpp
+│   │   └── Pawn.hpp
+│   │
+│   ├── ai/
+│   │   └── ChessAI.hpp
+│   │
+│   └── utils/
+│       ├── FileIO.hpp
+│       └── Constants.hpp
+│
+├── src/
+│   ├── core/
+│   │   ├── Game.cpp
+│   │   └── Application.cpp
+│   │
+│   ├── board/
+│   │   ├── Board.cpp
+│   │   └── Tile.cpp
+│   │
+│   ├── pieces/
+│   │   ├── Piece.cpp
+│   │   └── Pawn.cpp
+│   │
+│   ├── ai/
+│   │   └── ChessAI.cpp
+│   │
+│   └── utils/
+│       └── FileIO.cpp
+│
+├── main.cpp
+└── README.md
+```
+
+---
+
 ## 📜 License
 
 This project is open-source and free to use for learning and practice.
