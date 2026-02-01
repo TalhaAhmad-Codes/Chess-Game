@@ -54,6 +54,9 @@
     <ClCompile Include="Functions.cpp">
       <Filter>Source Files\Misc</Filter>
     </ClCompile>
+    <ClCompile Include="Regex.cpp">
+      <Filter>Source Files\Misc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Name.hpp">
@@ -72,6 +75,9 @@
       <Filter>Header Files\Misc</Filter>
     </ClInclude>
     <ClInclude Include="Functions.hpp">
+      <Filter>Header Files\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Regex.hpp">
       <Filter>Header Files\Misc</Filter>
     </ClInclude>
   </ItemGroup>

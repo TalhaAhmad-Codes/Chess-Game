@@ -9,22 +9,19 @@ namespace Entity
 	{
 	private:
 		// Attributes
-		ValueObject::Name* name;
-		ValueObject::Score* score;
+		ValueObject::Name name;
+		ValueObject::Score score;
 
 	public:
 		// Constructor
-		Player (std::string name, unsigned int score = 1);
+		Player (const std::string& name, unsigned int score = 0);
 
 		// Getters
 		std::string get_name() const;
 		unsigned int get_score() const;
 
 		// Methods - Manipulate score
-		void increment_score(unsigned int value = 1);
-		void decrement_score(unsigned int value = 1);
-
-		// Desctructor
-		~Player();
+		void increment_score(const unsigned int& value);
+		void decrement_score(const unsigned int& value);
 	};
 }

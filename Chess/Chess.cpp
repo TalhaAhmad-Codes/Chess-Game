@@ -10,11 +10,10 @@ int main()
 {
     try
     {
-        Entity::Player player("Talha Ahmad", 15);
+        Entity::Player player("TalhaAhmad", 15);
 
-        player.increment_score();
-        player.decrement_score();
-        player.decrement_score();
+        player.increment_score(1);
+        player.decrement_score(2);
 
         std::cout << "Name:\t" << player.get_name() << '\n'
             << "Score:\t" << player.get_score() << std::endl;

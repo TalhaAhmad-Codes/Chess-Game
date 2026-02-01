@@ -1,6 +1,4 @@
-#include <algorithm>
-#include <cctype>
-
+#include "Functions.hpp"
 #include "Guard.hpp"
 #include "DomainException.hpp"
 
@@ -28,13 +26,12 @@ void Guard::against_negative(const int& value, const std::string& property)
 
 void Guard::against_null_or_whitespace(const std::string& value, const std::string& property)
 {
-	bool has_whitespace = value.empty() ||
-		std::all_of(value.begin(), value.end(),
-			[](unsigned char c)
-			{
-				return std::isspace(c);
-			});
-
-	if (has_whitespace)
+	if (Utils::Functions::is_null_or_whitespace(value))
 		throw DomainException(property + " can't be whitespace / empty.");
+}
+
+void Guard::against_regex_mismatch(const Utils::Pattern& pattern, const std::string& value)
+{
+	if (!Utils::Functions::is_regex_match(pattern.get_pattern(), value))
+		throw DomainException(pattern.get_message());
 }

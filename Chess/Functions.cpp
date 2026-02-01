@@ -1,5 +1,4 @@
-#include <cctype>
-
+#include <regex>
 #include "Functions.hpp"
 
 using namespace Utils;
@@ -36,4 +35,19 @@ std::string Functions::trim(std::string& value)
 	}
 
 	return value.substr(start, end - start);
+}
+
+bool Functions::is_null_or_whitespace(const std::string& value)
+{
+	return value.empty() ||
+		std::all_of(value.begin(), value.end(),
+			[](unsigned char c)
+			{
+				return std::isspace(c);
+			});
+}
+
+bool Functions::is_regex_match(const std::string& pattern, const std::string& value)
+{
+	return std::regex_match(value, std::regex(pattern));
 }

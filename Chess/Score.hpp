@@ -9,8 +9,9 @@ namespace ValueObject
 		unsigned int value;
 
 	public:
-		// Constructor
+		// Constructors
 		Score(unsigned int score = 0);
+		Score(const Score& obj);
 
 		// Getter
 		unsigned int get() const;

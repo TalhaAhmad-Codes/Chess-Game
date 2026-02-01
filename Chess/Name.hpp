@@ -11,6 +11,7 @@ namespace ValueObject
 
 	public:
 		// Constructor
+		Name();
 		Name(std::string name);
 
 		// Method - Getter

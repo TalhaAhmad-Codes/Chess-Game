@@ -4,10 +4,15 @@ using namespace ValueObject;
 
 /*// Score class -- Implementation //*/
 
-// Constructor
+// Constructors
 Score::Score(unsigned int score)
 {
 	value = score;
+}
+
+Score::Score(const Score& score)
+{
+	value = score.get();
 }
 
 // Getter

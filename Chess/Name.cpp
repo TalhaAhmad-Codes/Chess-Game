@@ -1,17 +1,20 @@
 #include "Name.hpp"
 #include "Guard.hpp"
 #include "Functions.hpp"
+#include "Regex.hpp"
 
 using namespace ValueObject;
 
 /*// Name class -- Implementation //*/
 
-// Constructor
+// Constructors
+Name::Name() {}
 Name::Name(std::string name)
 {
-	Shield::Guard::against_null_or_whitespace(name, "Name");
+	name = Utils::Functions::trim(name);
+	Shield::Guard::against_regex_mismatch(Utils::Regex::Name(), name);
 
-	value = Utils::Functions::trim(name);
+	value = name;
 }
 
 // Getter

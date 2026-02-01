@@ -139,6 +139,7 @@
     <ClCompile Include="Guard.cpp" />
     <ClCompile Include="Name.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Regex.cpp" />
     <ClCompile Include="Score.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -147,6 +148,7 @@
     <ClInclude Include="Guard.hpp" />
     <ClInclude Include="Name.hpp" />
     <ClInclude Include="Player.hpp" />
+    <ClInclude Include="Regex.hpp" />
     <ClInclude Include="Score.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
