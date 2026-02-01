@@ -11,7 +11,7 @@ Score::Score(unsigned int score)
 }
 
 // Getter
-unsigned int Score::get()
+unsigned int Score::get() const
 {
 	return value;
 }

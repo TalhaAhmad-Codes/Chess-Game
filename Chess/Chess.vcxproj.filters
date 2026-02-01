@@ -45,6 +45,15 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files\Objects\Player</Filter>
     </ClCompile>
+    <ClCompile Include="DomainException.cpp">
+      <Filter>Source Files\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="Guard.cpp">
+      <Filter>Source Files\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="Functions.cpp">
+      <Filter>Source Files\Misc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Name.hpp">
@@ -58,6 +67,12 @@
     </ClInclude>
     <ClInclude Include="Player.hpp">
       <Filter>Header Files\Objects\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Guard.hpp">
+      <Filter>Header Files\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Functions.hpp">
+      <Filter>Header Files\Misc</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

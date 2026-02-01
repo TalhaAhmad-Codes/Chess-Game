@@ -13,6 +13,6 @@ namespace ValueObject
 		Score(unsigned int score = 0);
 
 		// Getter
-		unsigned int get();
+		unsigned int get() const;
 	};
 }

@@ -13,12 +13,12 @@ Player::Player(std::string name, unsigned int score)
 }
 
 // Getters
-std::string Player::get_name()
+std::string Player::get_name() const
 {
 	return name->get();
 }
 
-unsigned int Player::get_score()
+unsigned int Player::get_score() const
 {
 	return score->get();
 }

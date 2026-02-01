@@ -14,6 +14,6 @@ namespace ValueObject
 		Name(std::string name);
 
 		// Method - Getter
-		std::string get();
+		std::string get() const;
 	};
 }

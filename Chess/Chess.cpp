@@ -2,19 +2,27 @@
 #include <SFML/Graphics.hpp>
 
 #include "Player.hpp"
+#include "DomainException.hpp"
 
 void sfml_demo(unsigned int, unsigned int);
 
 int main()
 {
-    Entity::Player player("Talha Ahmad", 15);
+    try
+    {
+        Entity::Player player("Talha Ahmad", 15);
 
-    player.increment_score();
-    player.decrement_score();
-    player.decrement_score();
+        player.increment_score();
+        player.decrement_score();
+        player.decrement_score();
 
-    std::cout << "Name:\t" << player.get_name() << '\n'
-              << "Score:\t" << player.get_score() << std::endl;
+        std::cout << "Name:\t" << player.get_name() << '\n'
+            << "Score:\t" << player.get_score() << std::endl;
+    }
+    catch (const Shield::DomainException& ex)
+    {
+        std::cout << ex.what() << std::endl;
+    }
     
     //sfml_demo(500);
 }

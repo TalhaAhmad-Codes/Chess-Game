@@ -17,8 +17,8 @@ namespace Entity
 		Player (std::string name, unsigned int score = 1);
 
 		// Getters
-		std::string get_name();
-		unsigned int get_score();
+		std::string get_name() const;
+		unsigned int get_score() const;
 
 		// Methods - Manipulate score
 		void increment_score(unsigned int value = 1);
