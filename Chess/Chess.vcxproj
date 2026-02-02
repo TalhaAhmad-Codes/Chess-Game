@@ -138,6 +138,8 @@
     <ClCompile Include="Functions.cpp" />
     <ClCompile Include="Guard.cpp" />
     <ClCompile Include="Name.cpp" />
+    <ClCompile Include="Pawn.cpp" />
+    <ClCompile Include="Piece.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="Range.cpp" />
@@ -149,6 +151,8 @@
     <ClInclude Include="Functions.hpp" />
     <ClInclude Include="Guard.hpp" />
     <ClInclude Include="Name.hpp" />
+    <ClInclude Include="Pawn.hpp" />
+    <ClInclude Include="Piece.hpp" />
     <ClInclude Include="Player.hpp" />
     <ClInclude Include="Position.hpp" />
     <ClInclude Include="Range.hpp" />

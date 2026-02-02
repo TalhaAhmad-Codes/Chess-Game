@@ -37,6 +37,12 @@
     <Filter Include="Source Files\Objects\Position">
       <UniqueIdentifier>{9a826c03-d6e4-4771-8e6a-761a9555ee47}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Objects\Pieces">
+      <UniqueIdentifier>{365c775f-e372-4317-89ba-41dd8da3ca34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\Pieces">
+      <UniqueIdentifier>{a300d4c1-4c79-4108-99cd-55b663d847eb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Chess.cpp">
@@ -69,6 +75,12 @@
     <ClCompile Include="Range.cpp">
       <Filter>Source Files\Objects\Position</Filter>
     </ClCompile>
+    <ClCompile Include="Piece.cpp">
+      <Filter>Source Files\Objects\Pieces</Filter>
+    </ClCompile>
+    <ClCompile Include="Pawn.cpp">
+      <Filter>Source Files\Objects\Pieces</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Name.hpp">
@@ -97,6 +109,12 @@
     </ClInclude>
     <ClInclude Include="Range.hpp">
       <Filter>Header Files\Objects\Position</Filter>
+    </ClInclude>
+    <ClInclude Include="Piece.hpp">
+      <Filter>Header Files\Objects\Pieces</Filter>
+    </ClInclude>
+    <ClInclude Include="Pawn.hpp">
+      <Filter>Header Files\Objects\Pieces</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
