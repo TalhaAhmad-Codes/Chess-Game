@@ -3,6 +3,7 @@
 
 #include "Player.hpp"
 #include "DomainException.hpp"
+#include "Position.hpp"
 
 void sfml_demo(unsigned int, unsigned int);
 
@@ -10,13 +11,27 @@ int main()
 {
     try
     {
-        Entity::Player player("TalhaAhmad", 15);
+        /*Entity::Player player("TalhaAhmad", 15);
 
         player.increment_score(1);
         player.decrement_score(2);
 
         std::cout << "Name:\t" << player.get_name() << '\n'
-            << "Score:\t" << player.get_score() << std::endl;
+            << "Score:\t" << player.get_score() << std::endl;*/
+
+        Utils::Position pos1(2, 3), pos2(1, 4), pos3;
+
+        pos1.display("Position 1:\t");
+        pos2.display("Position 2:\t");
+
+        pos3 = pos1 + pos2;
+        pos3.display("Addition:\t");
+
+        pos3 = pos1 - pos2;
+        pos3.display("Subtraction:\t");
+
+        pos3 = Utils::Position::abs_difference(pos1, pos2);
+        pos3.display("Abs-difference:\t");
     }
     catch (const Shield::DomainException& ex)
     {

@@ -1,0 +1,77 @@
+#include <cmath>
+#include <iostream>
+#include "Position.hpp"
+
+using namespace Utils;
+
+/*// Position class -- Implementation //*/
+
+// Constructors
+Position::Position()
+{
+	row = column = 0;
+}
+
+Position::Position(const int& row, const int& column)
+{
+	set_row(row);
+	set_column(column);
+}
+
+// Getters & Setters
+int Position::get_row() const
+{
+	return row;
+}
+
+int Position::get_column() const
+{
+	return column;
+}
+
+void Position::set_row(const int& row)
+{
+	this->row = row;
+}
+
+void Position::set_column(const int& column)
+{
+	this->column = column;
+}
+
+// Operator overloading
+
+Position Position::operator+(const Position& other)
+{
+	return Position(row + other.get_row(), column + other.get_column());
+}
+
+Position Position::operator-(const Position& other)
+{
+	return Position(row - other.get_row(), column - other.get_column());
+}
+
+bool Position::operator==(const Position& other)
+{
+	return row == other.get_row() && column == other.get_column();
+}
+
+bool Position::operator!=(const Position& other)
+{
+	return !(*this == other);
+}
+
+// Method - Absolute difference
+Position Position::abs_difference(const Position& left, const Position& right)
+{
+	int row = std::abs(left.get_row() - right.get_row()),
+		column = std::abs(left.get_column() - right.get_column());
+
+	return Position(row, column);
+}
+
+// Method - Display position
+void Position::display(const std::string& message)
+{
+	std::cout << message << '(' << row << ", " << column << ')' << std::endl;
+}

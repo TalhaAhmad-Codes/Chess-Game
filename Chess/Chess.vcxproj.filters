@@ -31,6 +31,12 @@
     <Filter Include="Source Files\Objects\Player">
       <UniqueIdentifier>{25599223-1bb8-4f19-b662-f81f8bd27ff3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Objects\Position">
+      <UniqueIdentifier>{346838e1-51e2-4ac4-ba95-638d0b7e8ed9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\Position">
+      <UniqueIdentifier>{9a826c03-d6e4-4771-8e6a-761a9555ee47}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Chess.cpp">
@@ -57,6 +63,9 @@
     <ClCompile Include="Regex.cpp">
       <Filter>Source Files\Misc</Filter>
     </ClCompile>
+    <ClCompile Include="Position.cpp">
+      <Filter>Source Files\Objects\Position</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Name.hpp">
@@ -79,6 +88,9 @@
     </ClInclude>
     <ClInclude Include="Regex.hpp">
       <Filter>Header Files\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Position.hpp">
+      <Filter>Header Files\Objects\Position</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
