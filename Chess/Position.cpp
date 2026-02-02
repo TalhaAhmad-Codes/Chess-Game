@@ -1,6 +1,7 @@
 #include <cmath>
 #include <iostream>
 #include "Position.hpp"
+#include "Guard.hpp"
 
 using namespace Utils;
 
@@ -29,13 +30,22 @@ int Position::get_column() const
 	return column;
 }
 
+Range Position::get_range() const
+{
+	return Range(-7, 7);
+}
+
 void Position::set_row(const int& row)
 {
+	Shield::Guard::against_out_of_range(get_range(), row, "Row");
+
 	this->row = row;
 }
 
 void Position::set_column(const int& column)
 {
+	Shield::Guard::against_out_of_range(get_range(), column, "Column");
+
 	this->column = column;
 }
 

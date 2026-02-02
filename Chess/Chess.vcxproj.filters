@@ -66,6 +66,9 @@
     <ClCompile Include="Position.cpp">
       <Filter>Source Files\Objects\Position</Filter>
     </ClCompile>
+    <ClCompile Include="Range.cpp">
+      <Filter>Source Files\Objects\Position</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Name.hpp">
@@ -90,6 +93,9 @@
       <Filter>Header Files\Misc</Filter>
     </ClInclude>
     <ClInclude Include="Position.hpp">
+      <Filter>Header Files\Objects\Position</Filter>
+    </ClInclude>
+    <ClInclude Include="Range.hpp">
       <Filter>Header Files\Objects\Position</Filter>
     </ClInclude>
   </ItemGroup>

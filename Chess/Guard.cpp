@@ -35,3 +35,9 @@ void Guard::against_regex_mismatch(const Utils::Pattern& pattern, const std::str
 	if (!Utils::Functions::is_regex_match(pattern.get_pattern(), value))
 		throw DomainException(pattern.get_message());
 }
+
+void Guard::against_out_of_range(const Utils::Range& range, const int& value, const std::string& property)
+{
+	if (value < range.get_start() || value > range.get_end())
+		throw DomainException(property + " can't be out of range " + range.to_string());
+}

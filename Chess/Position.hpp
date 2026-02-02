@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include "Range.hpp"
 
 namespace Utils
 {
@@ -18,6 +19,7 @@ namespace Utils
 		// Getters & Setters
 		int get_row() const;
 		int get_column() const;
+		Range get_range() const;
 
 		void set_row(const int&);
 		void set_column(const int&);

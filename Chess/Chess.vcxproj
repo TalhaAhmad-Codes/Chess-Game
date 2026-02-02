@@ -140,6 +140,7 @@
     <ClCompile Include="Name.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Position.cpp" />
+    <ClCompile Include="Range.cpp" />
     <ClCompile Include="Regex.cpp" />
     <ClCompile Include="Score.cpp" />
   </ItemGroup>
@@ -150,6 +151,7 @@
     <ClInclude Include="Name.hpp" />
     <ClInclude Include="Player.hpp" />
     <ClInclude Include="Position.hpp" />
+    <ClInclude Include="Range.hpp" />
     <ClInclude Include="Regex.hpp" />
     <ClInclude Include="Score.hpp" />
   </ItemGroup>

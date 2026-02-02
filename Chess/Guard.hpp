@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include "Range.hpp"
 #include "Regex.hpp"
 
 namespace Shield
@@ -13,5 +14,6 @@ namespace Shield
 		static void against_negative(const int&, const std::string&);
 		static void against_null_or_whitespace(const std::string&, const std::string&);
 		static void against_regex_mismatch(const Utils::Pattern&, const std::string&);
+		static void against_out_of_range(const Utils::Range&, const int&, const std::string&);
 	};
 }
