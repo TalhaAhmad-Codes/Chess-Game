@@ -1,0 +1,18 @@
+#pragma once
+
+#include "Piece.hpp"
+
+namespace Entity
+{
+	class Knight : public Piece
+	{
+	private:
+		bool is_valid_move(const Utils::Position&) override;
+
+	public:
+		Knight(PieceGroup, bool = false);
+		Knight(PieceGroup, const Utils::Position&, bool = false);
+
+		void move(const Utils::Position&) override;
+	};
+}

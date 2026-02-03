@@ -1,4 +1,3 @@
-#include <vector>
 #include "Pawn.hpp"
 #include "DomainException.hpp"
 
@@ -66,33 +65,9 @@ void Pawn::move(const Position& target)
 	Piece::move(target);
 }
 
-// Method - Promote the pawn
-Piece* Pawn::promote(PieceType type)
+// Method - Pawn promotion check
+bool Pawn::can_be_promoted() const
 {
-	Piece* piece = nullptr;
-
-	if (position.current.get_row() == 0 && group == PieceGroup::White ||
-		position.current.get_row() == 7 && group == PieceGroup::Black)
-	{
-		switch (type)
-		{
-			case PieceType::Bishop:
-				break;
-
-			case PieceType::Knight:
-				break;
-
-			case PieceType::Rook:
-				//piece = new Rook(group, is_moved);
-				break;
-
-			case PieceType::Queen:
-				break;
-
-			default:
-				throw DomainException("Invalid type selection for promotion.");
-		}
-	}
-
-	return piece;
+	return position.current.get_row() == 7 && group == PieceGroup::White ||
+		   position.current.get_row() == 0 && group == PieceGroup::Black;
 }

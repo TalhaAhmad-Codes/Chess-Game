@@ -133,29 +133,37 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bishop.cpp" />
     <ClCompile Include="Chess.cpp" />
     <ClCompile Include="DomainException.cpp" />
     <ClCompile Include="Functions.cpp" />
     <ClCompile Include="Guard.cpp" />
+    <ClCompile Include="King.cpp" />
+    <ClCompile Include="Knight.cpp" />
     <ClCompile Include="Name.cpp" />
     <ClCompile Include="Pawn.cpp" />
     <ClCompile Include="Piece.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Position.cpp" />
+    <ClCompile Include="Queen.cpp" />
     <ClCompile Include="Range.cpp" />
     <ClCompile Include="Regex.cpp" />
     <ClCompile Include="Rook.cpp" />
     <ClCompile Include="Score.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bishop.hpp" />
     <ClInclude Include="DomainException.hpp" />
     <ClInclude Include="Functions.hpp" />
     <ClInclude Include="Guard.hpp" />
+    <ClInclude Include="King.hpp" />
+    <ClInclude Include="Knight.hpp" />
     <ClInclude Include="Name.hpp" />
     <ClInclude Include="Pawn.hpp" />
     <ClInclude Include="Piece.hpp" />
     <ClInclude Include="Player.hpp" />
     <ClInclude Include="Position.hpp" />
+    <ClInclude Include="Queen.hpp" />
     <ClInclude Include="Range.hpp" />
     <ClInclude Include="Regex.hpp" />
     <ClInclude Include="Rook.hpp" />

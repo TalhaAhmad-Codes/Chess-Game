@@ -27,20 +27,8 @@ bool Rook::is_valid_move(const Position& target)
 	auto diff_pos = Position::abs_difference(position.current, target);
 	int row = diff_pos.get_row(), column = diff_pos.get_column();
 
-	if (row == 0)
-	{
-		if (column == 0 || column > 7)	// B
-			validity = false;
-	}
-	else if (column == 0)
-	{
-		if (row == 0 || row > 7)	// A
-			validity = false;
-	}
-	else
-	{
+	if (row != 0 && column != 0)	// A & B
 		validity = false;
-	}
 
 	return validity;
 }
