@@ -11,7 +11,7 @@ Position PiecePosition::get_previous() const
 {
 	if (previous_moves.empty())
 	{
-		throw DomainException("Undo stack is empty");
+		throw DomainException("Undo-stack is empty");
 	}
 
 	auto position = previous_moves.top();
@@ -21,46 +21,27 @@ Position PiecePosition::get_previous() const
 
 void PiecePosition::move(const Position& target)
 {
-	// Get absolute difference for the position
-	auto position = Position::abs_difference(current, target);
-	bool is_valid = false;
-
-	// Check if the move is legal or not
-	for (auto&& move : legal_moves)
-	{
-		if (position == move)	// Match found!
-		{
-			is_valid = true; break;
-		}
-	}
-
-	// In-valid move case
-	if (!is_valid)
-		throw DomainException("The move is invalid!");
-
-	// Valid move case
+	/// Valid move case
 	previous_moves.push(current);
-	current = position;
+	current = target;
 }
 
 /*// Piece class -- Implementation //*/
 
 // Constructors
-Piece::Piece(PieceType type, PieceGroup group, std::vector<Utils::Position> legal_moves, bool is_moved)
+Piece::Piece(PieceType type, PieceGroup group, bool is_moved)
 {
 	this->type = type;
 	this->group = group;
 	this->is_moved = is_moved;
-	position.legal_moves = legal_moves;
 }
 
-Piece::Piece(PieceType type, PieceGroup group, const Utils::Position& position, std::vector<Utils::Position> legal_moves, bool is_moved)
+Piece::Piece(PieceType type, PieceGroup group, const Utils::Position& position, bool is_moved)
 {
 	this->type = type;
 	this->group = group;
 	this->is_moved = is_moved;
 	this->position.current = position;
-	this->position.legal_moves = legal_moves;
 }
 
 // Getters
@@ -84,8 +65,14 @@ bool Piece::moved() const
 	return is_moved;
 }
 
-// Method - Move the piece
+// Method - Validate move
+bool Piece::is_valid_move(const Position& target)
+{
+	auto diff_pos = Position::abs_difference(position.current, target);
+	return diff_pos.get_row() == diff_pos.get_column() && diff_pos.get_row() == 0;
+}
 
+// Method - Move the piece
 void Piece::move(const Position& target)
 {
 	position.move(target);

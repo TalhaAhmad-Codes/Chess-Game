@@ -1,7 +1,6 @@
 #pragma once
 
 #include <stack>
-#include <vector>
 #include "Position.hpp"
 
 namespace Entity
@@ -21,7 +20,6 @@ namespace Entity
 		// Attributes
 		Utils::Position current;					// Current position of the chess piece
 		std::stack<Utils::Position> previous_moves;		// To support undo feature
-		std::vector<Utils::Position> legal_moves;	// To hold only legal moves for the chess piece
 
 		// Functions
 		Utils::Position get_previous() const;	// Get recent position from the stack
@@ -38,10 +36,13 @@ namespace Entity
 		PieceGroup group;
 		PiecePosition position;
 
+		// Method - Move validator
+		virtual bool is_valid_move(const Utils::Position&);
+
 	public:
 		// Constructors
-		Piece(PieceType, PieceGroup, std::vector<Utils::Position>, bool = false);
-		Piece(PieceType, PieceGroup, const Utils::Position&, std::vector<Utils::Position>, bool = false);
+		Piece(PieceType, PieceGroup, bool = false);
+		Piece(PieceType, PieceGroup, const Utils::Position&, bool = false);
 
 		// Getters
 		Utils::Position get_position() const;

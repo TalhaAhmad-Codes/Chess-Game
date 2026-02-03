@@ -4,23 +4,18 @@
 
 namespace Entity
 {
-	class Pawn : public Piece
+	class Rook : public Piece
 	{
 	private:
-		bool double_box_move;
-
 		// Method - Check for valid move
 		bool is_valid_move(const Utils::Position&) override;
 
 	public:
 		// Constructors
-		Pawn(PieceGroup, bool = false);
-		Pawn(PieceGroup, const Utils::Position&, bool = false);
-		
-		// Method - Promote the piece
-		Piece* promote(PieceType);
+		Rook(PieceGroup, bool = false);
+		Rook(PieceGroup, const Utils::Position&, bool = false);
 
-		// Method - Move the pawn
+		// Method - Move the rook
 		void move(const Utils::Position&) override;
 	};
 }

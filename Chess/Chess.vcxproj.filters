@@ -81,6 +81,9 @@
     <ClCompile Include="Pawn.cpp">
       <Filter>Source Files\Objects\Pieces</Filter>
     </ClCompile>
+    <ClCompile Include="Rook.cpp">
+      <Filter>Source Files\Objects\Pieces</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Name.hpp">
@@ -114,6 +117,9 @@
       <Filter>Header Files\Objects\Pieces</Filter>
     </ClInclude>
     <ClInclude Include="Pawn.hpp">
+      <Filter>Header Files\Objects\Pieces</Filter>
+    </ClInclude>
+    <ClInclude Include="Rook.hpp">
       <Filter>Header Files\Objects\Pieces</Filter>
     </ClInclude>
   </ItemGroup>

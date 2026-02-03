@@ -144,6 +144,7 @@
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="Range.cpp" />
     <ClCompile Include="Regex.cpp" />
+    <ClCompile Include="Rook.cpp" />
     <ClCompile Include="Score.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +158,7 @@
     <ClInclude Include="Position.hpp" />
     <ClInclude Include="Range.hpp" />
     <ClInclude Include="Regex.hpp" />
+    <ClInclude Include="Rook.hpp" />
     <ClInclude Include="Score.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
