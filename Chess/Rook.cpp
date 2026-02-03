@@ -9,10 +9,10 @@ using namespace Shield;
 
 // Constructors
 Rook::Rook(PieceGroup group, bool is_moved)
-	: Piece(PieceType::Rook, group, is_moved) {}
+	: Piece(PieceType::ROOK, group, is_moved) {}
 
 Rook::Rook(PieceGroup group, const Position& position, bool is_moved)
-	: Piece(PieceType::Rook, group, position, is_moved) {}
+	: Piece(PieceType::ROOK, group, position, is_moved) {}
 
 // Method - Move validation
 bool Rook::is_valid_move(const Position& target)

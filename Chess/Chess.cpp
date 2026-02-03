@@ -5,6 +5,9 @@
 #include "DomainException.hpp"
 #include "Position.hpp"
 
+#include "Pawn.hpp"
+#include "Rook.hpp"
+
 void sfml_demo(const unsigned int&, const unsigned int& = 1);
 
 int main()
@@ -38,7 +41,27 @@ int main()
     //    std::cout << ex.what() << std::endl;
     //}
     
-    sfml_demo(500, 10);
+    //sfml_demo(500, 10);
+
+    try {
+        /*Entity::Pawn pawn(Entity::PieceGroup::BLACK, Utils::Position(1, 0));
+        pawn.display_info();
+
+        pawn.move(Utils::Position(3, 0));
+        pawn.display_info();
+
+        pawn.move(Utils::Position(4, 1));
+        pawn.display_info();*/
+
+        /*Entity::Rook rook(Entity::PieceGroup::BLACK, Utils::Position(0, 0));
+        rook.display_info();
+
+        rook.move(Utils::Position(0, 4));
+        rook.display_info();*/
+    }
+    catch (const Shield::DomainException ex) {
+        std::cout << "\nError:\t" << ex.what() << std::endl;
+    }
 }
 
 void sfml_demo(const unsigned int& resolution, const unsigned int& offset)

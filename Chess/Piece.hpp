@@ -7,12 +7,12 @@ namespace Entity
 {
 	enum PieceType
 	{
-		Pawn, Bishop, Rook, Knight, Queen, King
+		PAWN = 0, BISHOP, ROOK, KNIGHT, QUEEN, KING
 	};
 
 	enum PieceGroup
 	{
-		White, Black
+		WHITE = 0, BLACK
 	};
 
 	struct PiecePosition
@@ -52,5 +52,8 @@ namespace Entity
 
 		// Method - Move the piece
 		virtual void move(const Utils::Position&);
+
+		// Method - Display piece information
+		void display_info();
 	};
 }

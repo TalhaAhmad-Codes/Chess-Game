@@ -8,14 +8,29 @@ using namespace Shield;
 /*// Pawn class -- Implementation //*/
 
 // Constructors
-Pawn::Pawn(PieceGroup group, bool is_moved) : Piece(PieceType::Pawn, group, is_moved) {}
+Pawn::Pawn(PieceGroup group, bool is_moved) : Piece(PieceType::PAWN, group, is_moved) {}
 
-Pawn::Pawn(PieceGroup group, const Position& position, bool is_moved) : Piece(PieceType::Pawn, group, position, is_moved) {}
+Pawn::Pawn(PieceGroup group, const Position& position, bool is_moved) : Piece(PieceType::PAWN, group, position, is_moved) {}
 
 // Method - Move validity
 bool Pawn::is_valid_move(const Position& target)
 {
-	bool validity = Piece::is_valid_move(target);
+	// Against reverse movement
+	switch (group)
+	{
+		case PieceGroup::WHITE:
+			if (target.get_row() < position.current.get_row())
+				return false;
+			break;
+		
+		case PieceGroup::BLACK:
+			if (target.get_row() > position.current.get_column())
+				return false;
+			break;
+	}
+
+	if (!Piece::is_valid_move(target))
+		return false;
 
 	/*
 	Valid moves are:
@@ -35,23 +50,23 @@ bool Pawn::is_valid_move(const Position& target)
 			if (is_moved)
 			{
 				double_box_move = false;
-				validity = false;
+				return false;
 			}
-
-			double_box_move = true;
+			else
+				double_box_move = true;
 		}
 		else if (row != 1)	// A
-			validity = false;
+			return false;
 	}
 	else if (column == 1)
 	{
 		if (row != 1)	// B
-			validity = false;
+			return false;
 	}
-	else if (column > 1 || row > 1)
-		validity = false;
+	else
+		return false;
 
-	return validity;
+	return true;
 }
 
 // Method - Move the piece
@@ -68,6 +83,6 @@ void Pawn::move(const Position& target)
 // Method - Pawn promotion check
 bool Pawn::can_be_promoted() const
 {
-	return position.current.get_row() == 7 && group == PieceGroup::White ||
-		   position.current.get_row() == 0 && group == PieceGroup::Black;
+	return position.current.get_row() == 7 && group == PieceGroup::WHITE ||
+		   position.current.get_row() == 0 && group == PieceGroup::BLACK;
 }

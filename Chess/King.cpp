@@ -7,9 +7,9 @@ using namespace Utils;
 
 /*// King class -- Implementation //*/
 
-King::King(PieceGroup group, bool is_moved) : Piece(PieceType::King, group, is_moved) {}
+King::King(PieceGroup group, bool is_moved) : Piece(PieceType::KING, group, is_moved) {}
 
-King::King(PieceGroup group, const Position& position, bool is_moved) : Piece(PieceType::King, group, position, is_moved) {}
+King::King(PieceGroup group, const Position& position, bool is_moved) : Piece(PieceType::KING, group, position, is_moved) {}
 
 bool King::is_valid_move(const Position& target)
 {

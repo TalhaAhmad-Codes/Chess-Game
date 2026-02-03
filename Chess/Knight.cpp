@@ -7,9 +7,9 @@ using namespace Shield;
 
 /*// Knight class -- Implementation //*/
 
-Knight::Knight(PieceGroup group, bool is_moved) : Piece(PieceType::Knight, group, is_moved) {}
+Knight::Knight(PieceGroup group, bool is_moved) : Piece(PieceType::KNIGHT, group, is_moved) {}
 
-Knight::Knight(PieceGroup group, const Position& position, bool is_moved) : Piece(PieceType::Knight, group, position, is_moved) {}
+Knight::Knight(PieceGroup group, const Position& position, bool is_moved) : Piece(PieceType::KNIGHT, group, position, is_moved) {}
 
 bool Knight::is_valid_move(const Position& target)
 {
