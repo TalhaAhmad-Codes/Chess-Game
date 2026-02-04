@@ -11,9 +11,11 @@ King::King(PieceGroup group, bool is_moved) : Piece(PieceType::KING, group, is_m
 
 King::King(PieceGroup group, const Position& position, bool is_moved) : Piece(PieceType::KING, group, position, is_moved) {}
 
-bool King::is_valid_move(const Position& target)
+bool King::is_valid_move(const Position& target) const
 {
-	bool validity = Piece::is_valid_move(target);
+	if (!Piece::is_valid_move(target))
+		return false;
+
 	auto diff_pos = Position::abs_difference(position.current, target);
 	int row = diff_pos.get_row(), column = diff_pos.get_column();
 
@@ -26,19 +28,17 @@ bool King::is_valid_move(const Position& target)
 	if (row == column)
 	{
 		if (row != 1)	// B
-			validity = false;
+			return false;
 	}
 	else
 	{
 		if (column == 0 && row != 1)	// A
-			validity = false;
+			return false;
 		else if (row == 0 && column != 1)	// C
-			validity = false;
-		else
-			validity = false;
+			return false;
 	}
 
-	return validity;
+	return true;
 }
 
 void King::move(const Position& target)

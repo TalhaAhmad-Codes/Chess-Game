@@ -7,10 +7,8 @@ namespace Entity
 	class Pawn : public Piece
 	{
 	private:
-		bool double_box_move;
-
 		// Method - Check for valid move
-		bool is_valid_move(const Utils::Position&) override;
+		bool is_valid_move(const Utils::Position&) const override;
 
 	public:
 		// Constructors

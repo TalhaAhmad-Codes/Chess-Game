@@ -11,9 +11,10 @@ Knight::Knight(PieceGroup group, bool is_moved) : Piece(PieceType::KNIGHT, group
 
 Knight::Knight(PieceGroup group, const Position& position, bool is_moved) : Piece(PieceType::KNIGHT, group, position, is_moved) {}
 
-bool Knight::is_valid_move(const Position& target)
+bool Knight::is_valid_move(const Position& target) const
 {
-	bool validity = Piece::is_valid_move(target);
+	if (!Piece::is_valid_move(target)) return false;
+
 	auto diff_pos = Position::abs_difference(position.current, target);
 	int row = diff_pos.get_row(), column = diff_pos.get_column();
 
@@ -25,19 +26,15 @@ bool Knight::is_valid_move(const Position& target)
 	if (row == 2)	// A
 	{
 		if (column != 1)
-			validity = false;
+			return false;
 	}
 	else if (column == 2)	// B
 	{
 		if (row != 1)
-			validity = false;
-	}
-	else
-	{
-		validity = false;
+			return false;
 	}
 
-	return validity;
+	return true;
 }
 
 void Knight::move(const Position& target)

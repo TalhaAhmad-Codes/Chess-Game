@@ -68,7 +68,7 @@ bool Piece::moved() const
 }
 
 // Method - Validate move
-bool Piece::is_valid_move(const Position& target)
+bool Piece::is_valid_move(const Position& target) const
 {
 	// If either row or column is negative
 	if (target.get_row() < 0)

@@ -37,7 +37,7 @@ namespace Entity
 		PiecePosition position;
 
 		// Method - Move validator
-		virtual bool is_valid_move(const Utils::Position&);
+		virtual bool is_valid_move(const Utils::Position&) const;
 
 	public:
 		// Constructors

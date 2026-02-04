@@ -13,7 +13,7 @@ Pawn::Pawn(PieceGroup group, bool is_moved) : Piece(PieceType::PAWN, group, is_m
 Pawn::Pawn(PieceGroup group, const Position& position, bool is_moved) : Piece(PieceType::PAWN, group, position, is_moved) {}
 
 // Method - Move validity
-bool Pawn::is_valid_move(const Position& target)
+bool Pawn::is_valid_move(const Position& target) const
 {
 	// Against reverse movement
 	switch (group)
@@ -24,7 +24,7 @@ bool Pawn::is_valid_move(const Position& target)
 			break;
 		
 		case PieceGroup::BLACK:
-			if (target.get_row() > position.current.get_column())
+			if (target.get_row() > position.current.get_row())
 				return false;
 			break;
 	}
@@ -47,13 +47,7 @@ bool Pawn::is_valid_move(const Position& target)
 		if (row == 2)	// C
 		{
 			// If pawn is already moved
-			if (is_moved)
-			{
-				double_box_move = false;
-				return false;
-			}
-			else
-				double_box_move = true;
+			if (is_moved) return false;
 		}
 		else if (row != 1)	// A
 			return false;

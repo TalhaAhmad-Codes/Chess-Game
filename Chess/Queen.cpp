@@ -11,9 +11,10 @@ Queen::Queen(PieceGroup group, bool is_moved) : Piece(PieceType::QUEEN, group, i
 
 Queen::Queen(PieceGroup group, const Position& position, bool is_moved) : Piece(PieceType::QUEEN, group, position, is_moved) {}
 
-bool Queen::is_valid_move(const Position& target)
+bool Queen::is_valid_move(const Position& target) const
 {
-	bool validity = Piece::is_valid_move(target);
+	if (!Piece::is_valid_move(target)) return false;
+
 	auto diff_pos = Position::abs_difference(position.current, target);
 	int row = diff_pos.get_row(), column = diff_pos.get_column();
 
@@ -24,17 +25,16 @@ bool Queen::is_valid_move(const Position& target)
 		C. (n, n)		// Diagonal
 	where 8 > n > 0.
 	*/
-	if (row != column)	// C
-	{
-		validity = false;
-	}
-	else
-	{
-		if (row != 0 && column != 0)	// A & B
-			validity = false;
-	}
+	if (row == 0 && column != 0)
+		return true;
 
-	return validity;
+	else if (row != 0 && column == 0)
+		return true;
+
+	else if (row == column)
+		return true;
+
+	return false;
 }
 
 void Queen::move(const Position& target)

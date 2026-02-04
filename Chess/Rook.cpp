@@ -15,9 +15,9 @@ Rook::Rook(PieceGroup group, const Position& position, bool is_moved)
 	: Piece(PieceType::ROOK, group, position, is_moved) {}
 
 // Method - Move validation
-bool Rook::is_valid_move(const Position& target)
+bool Rook::is_valid_move(const Position& target) const
 {
-	bool validity = Piece::is_valid_move(target);
+	if (!Piece::is_valid_move(target)) return false;
 
 	/*
 	Valid moves are:
@@ -25,12 +25,11 @@ bool Rook::is_valid_move(const Position& target)
 		B. (0, 1) to (0, 7)		// Horizontal
 	*/
 	auto diff_pos = Position::abs_difference(position.current, target);
-	int row = diff_pos.get_row(), column = diff_pos.get_column();
 
-	if (row != 0 && column != 0)	// A & B
-		validity = false;
+	if (diff_pos.get_row() != 0 && diff_pos.get_column() != 0)	// A & B
+		return false;
 
-	return validity;
+	return true;
 }
 
 // Method - Move the rook
