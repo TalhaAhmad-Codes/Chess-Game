@@ -8,11 +8,11 @@ using namespace Shield;
 /*// Rook class -- Implementation //*/
 
 // Constructors
-Rook::Rook(PieceGroup group, bool is_moved)
-	: Piece(PieceType::ROOK, group, is_moved) {}
+Rook::Rook(PieceGroup group, bool is_moved, bool is_alive)
+	: Piece(PieceType::ROOK, group, is_moved, is_alive) {}
 
-Rook::Rook(PieceGroup group, const Position& position, bool is_moved)
-	: Piece(PieceType::ROOK, group, position, is_moved) {}
+Rook::Rook(PieceGroup group, const Position& position, bool is_moved, bool is_alive)
+	: Piece(PieceType::ROOK, group, position, is_moved, is_alive) {}
 
 // Method - Move validation
 bool Rook::is_valid_move(const Position& target) const

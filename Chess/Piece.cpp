@@ -31,19 +31,21 @@ void PiecePosition::move(const Position& target)
 /*// Piece class -- Implementation //*/
 
 // Constructors
-Piece::Piece(PieceType type, PieceGroup group, bool is_moved)
+Piece::Piece(PieceType type, PieceGroup group, bool is_moved, bool is_alive)
 {
 	this->type = type;
 	this->group = group;
 	this->is_moved = is_moved;
+	this->is_alive = is_alive;
 }
 
-Piece::Piece(PieceType type, PieceGroup group, const Utils::Position& position, bool is_moved)
+Piece::Piece(PieceType type, PieceGroup group, const Utils::Position& position, bool is_moved, bool is_alive)
 {
 	this->type = type;
 	this->group = group;
 	this->is_moved = is_moved;
 	this->position.current = position;
+	this->is_alive = is_alive;
 }
 
 // Getters
@@ -65,6 +67,11 @@ PieceGroup Piece::get_group() const
 bool Piece::moved() const
 {
 	return is_moved;
+}
+
+bool Piece::alive() const
+{
+	return is_alive;
 }
 
 // Method - Validate move

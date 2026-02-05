@@ -143,6 +143,7 @@
     <ClCompile Include="Name.cpp" />
     <ClCompile Include="Pawn.cpp" />
     <ClCompile Include="Piece.cpp" />
+    <ClCompile Include="PieceHandler.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="Queen.cpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="Name.hpp" />
     <ClInclude Include="Pawn.hpp" />
     <ClInclude Include="Piece.hpp" />
+    <ClInclude Include="PieceHandler.hpp" />
     <ClInclude Include="Player.hpp" />
     <ClInclude Include="Position.hpp" />
     <ClInclude Include="Queen.hpp" />

@@ -10,8 +10,8 @@ namespace Entity
 		bool is_valid_move(const Utils::Position&) const override;
 
 	public:
-		King(PieceGroup, bool = false);
-		King(PieceGroup, const Utils::Position&, bool = false);
+		King(PieceGroup, bool = false, bool = true);
+		King(PieceGroup, const Utils::Position&, bool = false, bool = true);
 
 		void move(const Utils::Position&) override;
 	};

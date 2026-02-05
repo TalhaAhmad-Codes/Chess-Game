@@ -7,9 +7,9 @@ using namespace Shield;
 
 /*// Queen class -- Implementation //*/
 
-Queen::Queen(PieceGroup group, bool is_moved) : Piece(PieceType::QUEEN, group, is_moved) {}
+Queen::Queen(PieceGroup group, bool is_moved, bool is_alive) : Piece(PieceType::QUEEN, group, is_moved, is_alive) {}
 
-Queen::Queen(PieceGroup group, const Position& position, bool is_moved) : Piece(PieceType::QUEEN, group, position, is_moved) {}
+Queen::Queen(PieceGroup group, const Position& position, bool is_moved, bool is_alive) : Piece(PieceType::QUEEN, group, position, is_moved, is_alive) {}
 
 bool Queen::is_valid_move(const Position& target) const
 {

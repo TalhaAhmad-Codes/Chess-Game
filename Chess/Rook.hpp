@@ -12,8 +12,8 @@ namespace Entity
 
 	public:
 		// Constructors
-		Rook(PieceGroup, bool = false);
-		Rook(PieceGroup, const Utils::Position&, bool = false);
+		Rook(PieceGroup, bool = false, bool = true);
+		Rook(PieceGroup, const Utils::Position&, bool = false, bool = true);
 
 		// Method - Move the rook
 		void move(const Utils::Position&) override;

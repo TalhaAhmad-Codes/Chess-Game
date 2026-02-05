@@ -8,9 +8,9 @@ using namespace Shield;
 /*// Pawn class -- Implementation //*/
 
 // Constructors
-Pawn::Pawn(PieceGroup group, bool is_moved) : Piece(PieceType::PAWN, group, is_moved) {}
+Pawn::Pawn(PieceGroup group, bool is_moved, bool is_alive) : Piece(PieceType::PAWN, group, is_moved, is_alive) {}
 
-Pawn::Pawn(PieceGroup group, const Position& position, bool is_moved) : Piece(PieceType::PAWN, group, position, is_moved) {}
+Pawn::Pawn(PieceGroup group, const Position& position, bool is_moved, bool is_alive) : Piece(PieceType::PAWN, group, position, is_moved, is_alive) {}
 
 // Method - Move validity
 bool Pawn::is_valid_move(const Position& target) const
@@ -18,12 +18,12 @@ bool Pawn::is_valid_move(const Position& target) const
 	// Against reverse movement
 	switch (group)
 	{
-		case PieceGroup::WHITE:
+		case PieceGroup::WHITE:	// Start's from 2nd row
 			if (target.get_row() < position.current.get_row())
 				return false;
 			break;
 		
-		case PieceGroup::BLACK:
+		case PieceGroup::BLACK:	// Start's from 2nd last row
 			if (target.get_row() > position.current.get_row())
 				return false;
 			break;

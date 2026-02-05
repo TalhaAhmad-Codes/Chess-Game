@@ -31,7 +31,7 @@ namespace Entity
 	{
 	protected:
 		// Attributes
-		bool is_moved;
+		bool is_moved, is_alive;
 		PieceType type;
 		PieceGroup group;
 		PiecePosition position;
@@ -41,14 +41,15 @@ namespace Entity
 
 	public:
 		// Constructors
-		Piece(PieceType, PieceGroup, bool = false);
-		Piece(PieceType, PieceGroup, const Utils::Position&, bool = false);
+		Piece(PieceType, PieceGroup, bool, bool);
+		Piece(PieceType, PieceGroup, const Utils::Position&, bool, bool);
 
 		// Getters
 		Utils::Position get_position() const;
 		PieceType get_type() const;
 		PieceGroup get_group() const;
 		bool moved() const;
+		bool alive() const;
 
 		// Method - Move the piece
 		virtual void move(const Utils::Position&);

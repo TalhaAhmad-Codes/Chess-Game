@@ -7,9 +7,9 @@ using namespace Shield;
 
 /*// Bishop class -- Implementation //*/
 
-Bishop::Bishop(PieceGroup group, bool is_moved) : Piece(PieceType::BISHOP, group, is_moved) {}
+Bishop::Bishop(PieceGroup group, bool is_moved, bool is_alive) : Piece(PieceType::BISHOP, group, is_moved, is_alive) {}
 
-Bishop::Bishop(PieceGroup group, const Position& position, bool is_moved) : Piece(PieceType::BISHOP, group, position, is_moved) {}
+Bishop::Bishop(PieceGroup group, const Position& position, bool is_moved, bool is_alive) : Piece(PieceType::BISHOP, group, position, is_moved, is_alive) {}
 
 
 bool Bishop::is_valid_move(const Position& target) const

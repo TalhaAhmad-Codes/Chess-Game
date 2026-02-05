@@ -96,6 +96,9 @@
     <ClCompile Include="King.cpp">
       <Filter>Source Files\Objects\Pieces</Filter>
     </ClCompile>
+    <ClCompile Include="PieceHandler.cpp">
+      <Filter>Source Files\Objects\Pieces</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Name.hpp">
@@ -144,6 +147,9 @@
       <Filter>Header Files\Objects\Pieces</Filter>
     </ClInclude>
     <ClInclude Include="King.hpp">
+      <Filter>Header Files\Objects\Pieces</Filter>
+    </ClInclude>
+    <ClInclude Include="PieceHandler.hpp">
       <Filter>Header Files\Objects\Pieces</Filter>
     </ClInclude>
   </ItemGroup>

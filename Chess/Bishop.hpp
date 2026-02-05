@@ -10,8 +10,8 @@ namespace Entity
 		bool is_valid_move(const Utils::Position&) const override;
 
 	public:
-		Bishop(PieceGroup, bool = false);
-		Bishop(PieceGroup, const Utils::Position&, bool = false);
+		Bishop(PieceGroup, bool = false, bool = true);
+		Bishop(PieceGroup, const Utils::Position&, bool = false, bool = true);
 
 		void move(const Utils::Position&) override;
 	};
