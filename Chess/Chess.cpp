@@ -7,68 +7,30 @@
 
 #include "Pawn.hpp"
 #include "Rook.hpp"
+#include "Bishop.hpp"
+#include "Knight.hpp"
+#include "Queen.hpp"
+#include "King.hpp"
 
-void sfml_demo(const unsigned int&, const unsigned int& = 1);
+void sfml_demo(const unsigned int&);
 
 int main()
 {
-    //try
-    //{
-    //    /*Entity::Player player("TalhaAhmad", 15);
-
-    //    player.increment_score(1);
-    //    player.decrement_score(2);
-
-    //    std::cout << "Name:\t" << player.get_name() << '\n'
-    //        << "Score:\t" << player.get_score() << std::endl;*/
-
-    //    Utils::Position pos1(2, 3), pos2(1, 4), pos3;
-
-    //    pos1.display("Position 1:\t");
-    //    pos2.display("Position 2:\t");
-
-    //    pos3 = pos1 + pos2;
-    //    pos3.display("Addition:\t");
-
-    //    pos3 = pos1 - pos2;
-    //    pos3.display("Subtraction:\t");
-
-    //    pos3 = Utils::Position::abs_difference(pos1, pos2);
-    //    pos3.display("Abs-difference:\t");
-    //}
-    //catch (const Shield::DomainException& ex)
-    //{
-    //    std::cout << ex.what() << std::endl;
-    //}
-    
-    //sfml_demo(500, 10);
-
     try {
-        /*Entity::Pawn pawn(Entity::PieceGroup::BLACK, Utils::Position(1, 0));
-        pawn.display_info();
+        const int row = 3, column = 3;
+        Entity::King piece(Entity::PieceGroup::WHITE, Utils::Position(row, column));
+        piece.display_info();
 
-        pawn.move(Utils::Position(3, 0));
-        pawn.display_info();
-
-        pawn.move(Utils::Position(4, 1));
-        pawn.display_info();*/
-
-        /*Entity::Rook rook(Entity::PieceGroup::BLACK, Utils::Position(0, 0));
-        rook.display_info();
-
-        rook.move(Utils::Position(0, 4));
-        rook.display_info();*/
+        piece.move(Utils::Position(row - 1, column + 1));
+        piece.display_info();
     }
     catch (const Shield::DomainException ex) {
         std::cout << "\nError:\t" << ex.what() << std::endl;
     }
 }
 
-void sfml_demo(const unsigned int& resolution, const unsigned int& offset)
+void sfml_demo(const unsigned int& resolution)
 {
-    if (offset == 0)
-        return;
-
     // Some values for the resolution of window and offset for the circile
     unsigned int resX = resolution, resY = resX;
 
@@ -76,7 +38,7 @@ void sfml_demo(const unsigned int& resolution, const unsigned int& offset)
     sf::RenderWindow window(sf::VideoMode({ resX, resY }), "SFML works!");
 
     // Drawing a circle on the window
-    sf::CircleShape shape(resX / 2 - offset);
+    sf::CircleShape shape(resX / 2);
     shape.setFillColor(sf::Color::White);   // Color of the circle
 
     // Window main loop -- while the window is running
