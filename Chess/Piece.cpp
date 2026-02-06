@@ -16,6 +16,7 @@ using namespace Logic;
 // Constructors
 Piece::Piece(PieceType type, PieceGroup group, bool is_moved, bool is_alive)
 {
+	against_none_group(group);
 	this->type = type;
 	this->group = group;
 	this->is_moved = is_moved;
@@ -24,6 +25,7 @@ Piece::Piece(PieceType type, PieceGroup group, bool is_moved, bool is_alive)
 
 Piece::Piece(PieceType type, PieceGroup group, const Utils::Position& position, bool is_moved, bool is_alive)
 {
+	against_none_group(group);
 	this->type = type;
 	this->group = group;
 	this->is_moved = is_moved;
@@ -86,6 +88,13 @@ bool Piece::is_valid_move(const Position& target) const
 	}
 
 	return validity;
+}
+
+// Method - Guard against NONE group
+void Piece::against_none_group(PieceGroup& group)
+{
+	if (group == PieceGroup::NONE)
+		throw DomainException("Group could not be NONE.");
 }
 
 // Method - Move the piece

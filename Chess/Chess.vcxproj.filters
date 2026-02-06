@@ -61,6 +61,12 @@
     <Filter Include="Source Files\Objects\Pieces\PieceInterfaces">
       <UniqueIdentifier>{44b51b44-75b6-4fc5-9784-0d2bba274312}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Objects\Board">
+      <UniqueIdentifier>{1787086c-7849-4e21-9d80-046f2f45f153}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\Board">
+      <UniqueIdentifier>{0151394b-f51d-4b83-a192-50b0b928eb6d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Chess.cpp">
@@ -102,6 +108,12 @@
     <ClCompile Include="PiecePosition.cpp">
       <Filter>Source Files\Objects\Pieces\PieceInterfaces</Filter>
     </ClCompile>
+    <ClCompile Include="Cell.cpp">
+      <Filter>Source Files\Objects\Board</Filter>
+    </ClCompile>
+    <ClCompile Include="Board.cpp">
+      <Filter>Source Files\Objects\Board</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Name.hpp">
@@ -142,6 +154,12 @@
     </ClInclude>
     <ClInclude Include="PiecePosition.hpp">
       <Filter>Header Files\Objects\Pieces\PieceInterfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Cell.hpp">
+      <Filter>Header Files\Objects\Board</Filter>
+    </ClInclude>
+    <ClInclude Include="Board.hpp">
+      <Filter>Header Files\Objects\Board</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

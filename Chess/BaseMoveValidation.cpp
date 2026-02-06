@@ -1,18 +1,28 @@
 #include "BaseMoveValidator.hpp"
+#include "DomainException.hpp"
 
 using namespace Logic;
 using namespace Utils;
+using namespace Shield;
 using namespace Interface;
 
 /*// Simple Move Validator class -- Implementation //*/
 
-// Check for board size range
+// Check for board size range (non-negative)
 bool BaseMoveValidator::is_in_range(const Position& position)
 {
-	bool row = position.get_row() >= 0 && position.get_row() < 8;
-	bool column = position.get_column() >= 0 && position.get_column() < 8;
+	bool validity = true;
 
-	return row && column;
+	try
+	{
+		position.against_negative_value();
+	}
+	catch (const DomainException& ex)
+	{
+		validity = false;
+	}
+
+	return validity;
 }
 
 // Base move validation check

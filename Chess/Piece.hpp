@@ -18,6 +18,9 @@ namespace Entity
 		// Method - Move validator
 		bool is_valid_move(const Utils::Position&) const;
 
+		// Method - Guard against NONE group
+		void against_none_group(Interface::PieceGroup&);
+
 	public:
 		// Constructors
 		Piece(Interface::PieceType, Interface::PieceGroup, bool = false, bool = true);

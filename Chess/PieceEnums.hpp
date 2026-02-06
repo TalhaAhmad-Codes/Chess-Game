@@ -9,6 +9,6 @@ namespace Interface
 
 	enum PieceGroup
 	{
-		WHITE = 0, BLACK
+		WHITE = 0, BLACK, NONE
 	};
 }

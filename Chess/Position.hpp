@@ -34,6 +34,9 @@ namespace Utils
 		// Method - Get absolute difference
 		static Position abs_difference(const Position&, const Position&);
 
+		// Method - Guard against negative value
+		void against_negative_value() const;
+
 		// Method - Display position - for debugging
 		void display(const std::string& message);
 	};

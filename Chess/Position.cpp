@@ -4,6 +4,7 @@
 #include "Guard.hpp"
 
 using namespace Utils;
+using namespace Shield;
 
 /*// Position class -- Implementation //*/
 
@@ -43,14 +44,14 @@ Range Position::get_range() const
 
 void Position::set_row(const int& row)
 {
-	Shield::Guard::against_out_of_range(get_range(), row, "Row");
+	Guard::against_out_of_range(get_range(), row, "Row");
 
 	this->row = row;
 }
 
 void Position::set_column(const int& column)
 {
-	Shield::Guard::against_out_of_range(get_range(), column, "Column");
+	Guard::against_out_of_range(get_range(), column, "Column");
 
 	this->column = column;
 }
@@ -84,6 +85,13 @@ Position Position::abs_difference(const Position& left, const Position& right)
 		column = std::abs(left.get_column() - right.get_column());
 
 	return Position(row, column);
+}
+
+// Method - Guard against negative value
+void Position::against_negative_value() const
+{
+	Guard::against_negative(row, "Row");
+	Guard::against_negative(column, "Column");
 }
 
 // Method - Display position

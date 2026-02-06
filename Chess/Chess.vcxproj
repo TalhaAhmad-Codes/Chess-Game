@@ -133,6 +133,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Board.cpp" />
+    <ClCompile Include="Cell.cpp" />
     <ClCompile Include="Chess.cpp" />
     <ClCompile Include="DomainException.cpp" />
     <ClCompile Include="Functions.cpp" />
@@ -148,6 +150,8 @@
     <ClCompile Include="BaseMoveValidation.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Board.hpp" />
+    <ClInclude Include="Cell.hpp" />
     <ClInclude Include="DomainException.hpp" />
     <ClInclude Include="Functions.hpp" />
     <ClInclude Include="Guard.hpp" />

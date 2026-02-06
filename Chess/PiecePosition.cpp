@@ -40,6 +40,16 @@ void PiecePosition::move(const Position& target, bool save_to_stack)
 	current = new Position(target);
 }
 
+// Method - Get initial positions for piece
+vector<Position> PiecePosition::initial_positions(PieceType type, PieceGroup group)
+{
+	vector<Position> positions;
+
+	///> I'll add the logic soon!
+
+	return positions;
+}
+
 // Destructor
 PiecePosition::~PiecePosition()
 {
