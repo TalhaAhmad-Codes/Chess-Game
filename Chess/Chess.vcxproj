@@ -142,6 +142,7 @@
     <ClCompile Include="Name.cpp" />
     <ClCompile Include="Piece.cpp" />
     <ClCompile Include="PiecePosition.cpp" />
+    <ClCompile Include="PieceSymbols.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="Range.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="Piece.hpp" />
     <ClInclude Include="PieceEnums.hpp" />
     <ClInclude Include="PiecePosition.hpp" />
+    <ClInclude Include="PieceSymbols.hpp" />
     <ClInclude Include="Player.hpp" />
     <ClInclude Include="Position.hpp" />
     <ClInclude Include="Range.hpp" />

@@ -6,36 +6,16 @@
 #include "Position.hpp"
 
 #include "Piece.hpp"
+#include "Board.hpp"
 
 void sfml_demo(const unsigned int&);
 
 int main()
 {
     try {
-        Entity::Piece piece(Interface::PieceType::ROOK, Interface::PieceGroup::WHITE, Utils::Position(4, 4));
-        for (int i = 0; i < 8; i++)
-        {
-            for (int j = 0; j < 8; j++)
-            {
-                Utils::Position target(i, j);
-                piece.get_position().display("Current:\t");
-                target.display("Target:\t\t");
-                bool is_success = true;
-
-                try
-                {
-                    piece.move(target);
-                }
-                catch (const Shield::DomainException& ex)
-                {
-                    is_success = false;
-                }
-                std::cout << "Status:\t\t";
-                (is_success) ? std::cout << "Valid" : std::cout << "In-valid";
-                std::cout << "\n\n";
-            }
-        }
-        
+        Entity::Board board;
+        board.move_piece(Utils::Position(1, 0), Utils::Position(3, 0)); // Moves white left-most pawn two blocks straight
+        board.display();
     }
     catch (const Shield::DomainException ex) {
         std::cout << "\nError:\t" << ex.what() << std::endl;

@@ -30,5 +30,8 @@ namespace Entity
 
 		// Method - Initialize / Reset the grid of the board
 		void reset();
+
+		// Method - Display --- Debugging purpose
+		void display();
 	};
 }

@@ -1,6 +1,8 @@
 #include "PiecePosition.hpp"
+#include "DomainException.hpp"
 
 using namespace Interface;
+using namespace Shield;
 using namespace Utils;
 using namespace std;
 
@@ -44,8 +46,52 @@ void PiecePosition::move(const Position& target, bool save_to_stack)
 vector<Position> PiecePosition::initial_positions(PieceType type, PieceGroup group)
 {
 	vector<Position> positions;
+	int row = (group == PieceGroup::WHITE) ? 0 : 7,	// Row
+		column, columns[2];	// Column(s); Use single variable for only King and Queen
+	if (type == PieceType::PAWN)	// Pawn case
+		row += (group == PieceGroup::WHITE) ? 1 : -1;
+	
+	switch (type)
+	{
+		case PieceType::PAWN:
+			for (int c = 0; c < 8; c++)
+				positions.push_back(Position(row, c));
+			break;
 
-	///> I'll add the logic soon!
+		case PieceType::BISHOP:
+			columns[0] = 2;
+			columns[1] = 5;
+			for (auto&& column : columns)
+				positions.push_back(Position(row, column));
+			break;
+
+		case PieceType::ROOK:
+			columns[0] = 0;
+			columns[1] = 7;
+			for (auto&& column : columns)
+				positions.push_back(Position(row, column));
+			break;
+
+		case PieceType::KNIGHT:
+			columns[0] = 1;
+			columns[1] = 6;
+			for (auto&& column : columns)
+				positions.push_back(Position(row, column));
+			break;
+
+		case PieceType::QUEEN:
+			column = 3;
+			positions.push_back(Position(row, column));
+			break;
+
+		case PieceType::KING:
+			column = 4;
+			positions.push_back(Position(row, column));
+			break;
+
+		default:
+			throw DomainException("Invalid piece type.");
+	}
 
 	return positions;
 }

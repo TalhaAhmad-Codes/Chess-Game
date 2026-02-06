@@ -114,6 +114,9 @@
     <ClCompile Include="Board.cpp">
       <Filter>Source Files\Objects\Board</Filter>
     </ClCompile>
+    <ClCompile Include="PieceSymbols.cpp">
+      <Filter>Source Files\Objects\Pieces\PieceInterfaces</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Name.hpp">
@@ -160,6 +163,9 @@
     </ClInclude>
     <ClInclude Include="Board.hpp">
       <Filter>Header Files\Objects\Board</Filter>
+    </ClInclude>
+    <ClInclude Include="PieceSymbols.hpp">
+      <Filter>Header Files\Objects\Pieces\PieceInterfaces</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

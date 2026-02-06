@@ -1,5 +1,7 @@
-#include "Board.hpp"
+#include <iostream>
 #include "DomainException.hpp"
+#include "PieceSymbols.hpp"
+#include "Board.hpp"
 
 using namespace std;
 using namespace Utils;
@@ -31,7 +33,7 @@ bool Board::is_empty(const Position& position)
 PieceGroup Board::get_piece_group(const Position& position)
 {
 	auto cell = get_cell(position);
-	return (cell == nullptr) ? PieceGroup::NONE : cell->get_piece().get_group();
+	return (cell == nullptr) ? PieceGroup::NONE : cell->get_piece()->get_group();
 }
 
 // Method - Place / Move piece around the grid
@@ -109,4 +111,38 @@ void Board::reset()
 {
 	clear();			// Clear the board
 	reset_pieces();		// Reset pieces' positions
+}
+
+// Debugging
+void Board::display()
+{
+	char labels[2][8] = {{'1', '2', '3', '4', '5', '6', '7', '8'},
+						{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'}};
+
+	// Column labels
+	cout << "  ";
+	for (int i = 0; i < 8; i++)
+	{
+		cout << labels[1][i] << ' ';
+	}
+	cout << endl;
+
+	// Grid & Row labels
+	for (int i = 7; i >= 0; i--)
+	{
+		cout << labels[0][7 - i] << ' ';	// Labels
+
+		// Grid
+		for (int j = 0; j < 8; j++)
+		{
+			auto cell = get_cell(Position(i, j));
+			auto piece = cell->get_piece();
+
+			(cell->is_empty()) ?
+				cout << '.' :
+				cout << PieceSymbol::get_symbol(piece->get_type(), piece->get_group());
+			cout << ' ';
+		}
+		cout << endl;
+	}
 }
