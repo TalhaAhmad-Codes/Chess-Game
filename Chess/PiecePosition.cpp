@@ -7,12 +7,15 @@ using namespace std;
 /*// Piece Position structure -- Functions' Implementation //*/
 
 // Constructor
-PiecePosition::PiecePosition() {}
+PiecePosition::PiecePosition(Position* position)
+{
+	current = position;
+}
 
 // Getters
 Position PiecePosition::get_current() const
 {
-	return current;
+	return *current;
 }
 
 Position PiecePosition::get_previous()
@@ -24,20 +27,24 @@ Position PiecePosition::get_previous()
 		return position;
 	}
 
-	return current;
+	return *current;
 }
 
 // Method - Movement
-void PiecePosition::move(const Position& target)
+void PiecePosition::move(const Position& target, bool save_to_stack)
 {
 	// Move the piece and store position to the undo stack
-	current = target;
-	previous_moves.push(current);
+	if (current != nullptr && save_to_stack)
+		previous_moves.push(*current);
+	
+	current = new Position(target);
 }
 
 // Destructor
 PiecePosition::~PiecePosition()
 {
+	delete current;
+
 	while (!previous_moves.empty())
 		previous_moves.pop();
 }

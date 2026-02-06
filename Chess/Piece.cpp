@@ -101,7 +101,7 @@ void Piece::move(const Position& target)
 // Method - Undo the piece
 void Piece::undo()
 {
-	// Updated soon!
+	position.move(position.get_previous(), false);
 }
 
 // Display piece info

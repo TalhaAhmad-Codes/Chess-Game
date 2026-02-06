@@ -19,6 +19,12 @@ Position::Position(const int& row, const int& column)
 	set_column(column);
 }
 
+Position::Position(const Position& position)
+{
+	set_row(position.get_row());
+	set_column(position.get_column());
+}
+
 // Getters & Setters
 int Position::get_row() const
 {

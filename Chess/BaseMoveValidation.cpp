@@ -34,18 +34,18 @@ bool BaseMoveValidator::pawn_validation(const Position& from, const Position& to
 	if (!base_validation(from, to))
 		return false;
 
-	bool moved = true;
+	bool is_first_move = true;
 	// Ensure pawn doesn't move backwards
 	switch (group)
 	{
 		case PieceGroup::WHITE:
 			if (to.get_row() < from.get_row()) return false;
-			moved = from.get_row() == 1;
+			is_first_move = from.get_row() == 1;
 			break;
 
 		case PieceGroup::BLACK:
 			if (to.get_row() > from.get_row()) return false;
-			moved = to.get_row() == 6;
+			is_first_move = to.get_row() == 6;
 			break;
 	}
 
@@ -57,7 +57,7 @@ bool BaseMoveValidator::pawn_validation(const Position& from, const Position& to
 	{
 		if (row == 2)	// (2, 0)
 		{
-			if (moved) return false;
+			if (!is_first_move) return false;
 		}
 		else if (row != 1)	// (1, 0)
 			return false;

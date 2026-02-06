@@ -15,6 +15,7 @@ namespace Utils
 		// Constructors
 		Position();
 		Position(const int& row, const int& column);
+		Position(const Position&);
 
 		// Getters & Setters
 		int get_row() const;
