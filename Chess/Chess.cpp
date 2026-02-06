@@ -12,15 +12,30 @@ void sfml_demo(const unsigned int&);
 int main()
 {
     try {
-        const int row = 3, column = 3;
-        Entity::Piece piece(Interface::PieceType::KING, Interface::PieceGroup::WHITE, Utils::Position(row, column));
-        piece.display_info();
+        Entity::Piece piece(Interface::PieceType::ROOK, Interface::PieceGroup::WHITE, Utils::Position(4, 4));
+        for (int i = 0; i < 8; i++)
+        {
+            for (int j = 0; j < 8; j++)
+            {
+                Utils::Position target(i, j);
+                piece.get_position().display("Current:\t");
+                target.display("Target:\t\t");
+                bool is_success = true;
 
-        piece.move(Utils::Position(row - 1, column + 1));
-        piece.display_info();
-
-        piece.undo();
-        piece.display_info();
+                try
+                {
+                    piece.move(target);
+                }
+                catch (const Shield::DomainException& ex)
+                {
+                    is_success = false;
+                }
+                std::cout << "Status:\t\t";
+                (is_success) ? std::cout << "Valid" : std::cout << "In-valid";
+                std::cout << "\n\n";
+            }
+        }
+        
     }
     catch (const Shield::DomainException ex) {
         std::cout << "\nError:\t" << ex.what() << std::endl;

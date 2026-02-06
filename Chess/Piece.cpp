@@ -94,7 +94,7 @@ void Piece::move(const Position& target)
 	if (!is_valid_move(target))
 		throw DomainException("The move is invalid.");
 
-	position.move(target);
+	//position.move(target);
 	is_moved = true;
 }
 
