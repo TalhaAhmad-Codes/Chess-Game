@@ -5,12 +5,7 @@
 #include "DomainException.hpp"
 #include "Position.hpp"
 
-#include "Pawn.hpp"
-#include "Rook.hpp"
-#include "Bishop.hpp"
-#include "Knight.hpp"
-#include "Queen.hpp"
-#include "King.hpp"
+#include "Piece.hpp"
 
 void sfml_demo(const unsigned int&);
 
@@ -18,10 +13,13 @@ int main()
 {
     try {
         const int row = 3, column = 3;
-        Entity::King piece(Entity::PieceGroup::WHITE, Utils::Position(row, column));
+        Entity::Piece piece(Interface::PieceType::KING, Interface::PieceGroup::WHITE, Utils::Position(row, column));
         piece.display_info();
 
         piece.move(Utils::Position(row - 1, column + 1));
+        piece.display_info();
+
+        piece.move(Utils::Position(row + 2, column));
         piece.display_info();
     }
     catch (const Shield::DomainException ex) {

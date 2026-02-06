@@ -1,32 +1,15 @@
 #include <iostream>
 #include "DomainException.hpp"
 #include "Piece.hpp"
+#include "BaseMoveValidator.hpp"
 
 using namespace std;
 using namespace Entity;
 using namespace Utils;
 using namespace Shield;
+using namespace Interface;
+using namespace Logic;
 
-/*// PiecePosition structure -- Functions' Implementation //*/
-
-Position PiecePosition::get_previous() const
-{
-	if (previous_moves.empty())
-	{
-		throw DomainException("Undo-stack is empty");
-	}
-
-	auto position = previous_moves.top();
-	//previous_moves.pop();
-	return position;
-}
-
-void PiecePosition::move(const Position& target)
-{
-	/// Valid move case
-	previous_moves.push(current);
-	current = target;
-}
 
 /*// Piece class -- Implementation //*/
 
@@ -44,22 +27,22 @@ Piece::Piece(PieceType type, PieceGroup group, const Utils::Position& position, 
 	this->type = type;
 	this->group = group;
 	this->is_moved = is_moved;
-	this->position.current = position;
+	this->position.move(position);
 	this->is_alive = is_alive;
 }
 
 // Getters
 Position Piece::get_position() const
 {
-	return position.current;
+	return position.get_current();
 }
 
-PieceType Piece::get_type() const
+PieceType Piece::get_type()
 {
 	return type;
 }
 
-PieceGroup Piece::get_group() const
+PieceGroup Piece::get_group()
 {
 	return group;
 }
@@ -77,26 +60,40 @@ bool Piece::alive() const
 // Method - Validate move
 bool Piece::is_valid_move(const Position& target) const
 {
-	// If either row or column is negative
-	if (target.get_row() < 0)
-		return false;
-	else if (target.get_column() < 0)
-		return false;
+	bool validity = true;
+	auto current = get_position();
 
-	// If both row & column are zero
-	auto diff_pos = Position::abs_difference(position.current, target);
-
-	if (diff_pos.get_row() == diff_pos.get_column() && diff_pos.get_row() == 0)
+	switch (type)
 	{
-		return false;
+		case PieceType::PAWN:
+			validity = BaseMoveValidator::pawn_validation(current, target, group);
+			break;
+		case PieceType::BISHOP:
+			validity = BaseMoveValidator::bishop_validation(current, target);
+			break;
+		case PieceType::ROOK:
+			validity = BaseMoveValidator::rook_validation(current, target);
+			break;
+		case PieceType::KNIGHT:
+			validity = BaseMoveValidator::knight_validation(current, target);
+			break;
+		case PieceType::QUEEN:
+			validity = BaseMoveValidator::queen_validation(current, target);
+			break;
+		case PieceType::KING:
+			validity = BaseMoveValidator::king_validation(current, target);
+			break;
 	}
 
-	return true;
+	return validity;
 }
 
 // Method - Move the piece
 void Piece::move(const Position& target)
 {
+	if (!is_valid_move(target))
+		throw DomainException("The move is invalid.");
+
 	position.move(target);
 	is_moved = true;
 }
@@ -113,6 +110,6 @@ void Piece::display_info()
 	cout << "\n********** Piece Information **********" << endl;
 	cout << "Group:\t\t" << group << endl;
 	cout << "Type:\t\t" << type[get_type()] << endl;
-	position.current.display("Position:\t");
+	get_position().display("Position:\t");
 	cout << "Moved:\t\t" << moved << endl;
 }

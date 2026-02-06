@@ -43,6 +43,24 @@
     <Filter Include="Source Files\Objects\Pieces">
       <UniqueIdentifier>{a300d4c1-4c79-4108-99cd-55b663d847eb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Logic">
+      <UniqueIdentifier>{d0435f9d-7004-4320-ab05-360a84fa5d0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Logic\MoveValidation">
+      <UniqueIdentifier>{365aec93-8dd4-410d-b68d-66160f0b098a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Logic">
+      <UniqueIdentifier>{fc092e8c-54c4-4885-b81e-ebfc2a7c7bb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Logic\MoveValidation">
+      <UniqueIdentifier>{a1919e90-8b06-4ec4-9fbc-0b5e74247256}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Objects\Pieces\PieceInterfaces">
+      <UniqueIdentifier>{b56df123-e3b4-452d-897f-fce0febd08f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Objects\Pieces\PieceInterfaces">
+      <UniqueIdentifier>{44b51b44-75b6-4fc5-9784-0d2bba274312}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Chess.cpp">
@@ -78,26 +96,11 @@
     <ClCompile Include="Piece.cpp">
       <Filter>Source Files\Objects\Pieces</Filter>
     </ClCompile>
-    <ClCompile Include="Pawn.cpp">
-      <Filter>Source Files\Objects\Pieces</Filter>
+    <ClCompile Include="BaseMoveValidation.cpp">
+      <Filter>Source Files\Logic\MoveValidation</Filter>
     </ClCompile>
-    <ClCompile Include="Rook.cpp">
-      <Filter>Source Files\Objects\Pieces</Filter>
-    </ClCompile>
-    <ClCompile Include="Bishop.cpp">
-      <Filter>Source Files\Objects\Pieces</Filter>
-    </ClCompile>
-    <ClCompile Include="Knight.cpp">
-      <Filter>Source Files\Objects\Pieces</Filter>
-    </ClCompile>
-    <ClCompile Include="Queen.cpp">
-      <Filter>Source Files\Objects\Pieces</Filter>
-    </ClCompile>
-    <ClCompile Include="King.cpp">
-      <Filter>Source Files\Objects\Pieces</Filter>
-    </ClCompile>
-    <ClCompile Include="PieceHandler.cpp">
-      <Filter>Source Files\Objects\Pieces</Filter>
+    <ClCompile Include="PiecePosition.cpp">
+      <Filter>Source Files\Objects\Pieces\PieceInterfaces</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -131,26 +134,14 @@
     <ClInclude Include="Piece.hpp">
       <Filter>Header Files\Objects\Pieces</Filter>
     </ClInclude>
-    <ClInclude Include="Pawn.hpp">
-      <Filter>Header Files\Objects\Pieces</Filter>
+    <ClInclude Include="BaseMoveValidator.hpp">
+      <Filter>Header Files\Logic\MoveValidation</Filter>
     </ClInclude>
-    <ClInclude Include="Rook.hpp">
-      <Filter>Header Files\Objects\Pieces</Filter>
+    <ClInclude Include="PieceEnums.hpp">
+      <Filter>Header Files\Objects\Pieces\PieceInterfaces</Filter>
     </ClInclude>
-    <ClInclude Include="Bishop.hpp">
-      <Filter>Header Files\Objects\Pieces</Filter>
-    </ClInclude>
-    <ClInclude Include="Knight.hpp">
-      <Filter>Header Files\Objects\Pieces</Filter>
-    </ClInclude>
-    <ClInclude Include="Queen.hpp">
-      <Filter>Header Files\Objects\Pieces</Filter>
-    </ClInclude>
-    <ClInclude Include="King.hpp">
-      <Filter>Header Files\Objects\Pieces</Filter>
-    </ClInclude>
-    <ClInclude Include="PieceHandler.hpp">
-      <Filter>Header Files\Objects\Pieces</Filter>
+    <ClInclude Include="PiecePosition.hpp">
+      <Filter>Header Files\Objects\Pieces\PieceInterfaces</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
