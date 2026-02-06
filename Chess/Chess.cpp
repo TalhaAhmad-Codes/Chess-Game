@@ -14,12 +14,19 @@ int main()
 {
     try {
         Entity::Board board;
-        board.move_piece(Utils::Position(1, 0), Utils::Position(3, 0)); // Moves white left-most pawn two blocks straight
+        board.move_piece(Utils::Position(0, 2), Utils::Position(2, 4));
+        board.move_piece(Utils::Position(2, 4), Utils::Position(4, 6));
+        //board.move_piece(Utils::Position(4, 6), Utils::Position(5, 4));
         board.display();
     }
     catch (const Shield::DomainException ex) {
         std::cout << "\nError:\t" << ex.what() << std::endl;
     }
+
+    /*Utils::Position from(4, 4), to(0, 7), offset = to - from;
+    from.display("From:\t");
+    to.display("To:\t");
+    offset.display("Offset:\t");*/
 }
 
 void sfml_demo(const unsigned int& resolution)

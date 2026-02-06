@@ -140,6 +140,7 @@
     <ClCompile Include="Functions.cpp" />
     <ClCompile Include="Guard.cpp" />
     <ClCompile Include="Name.cpp" />
+    <ClCompile Include="PathMoveValidator.cpp" />
     <ClCompile Include="Piece.cpp" />
     <ClCompile Include="PiecePosition.cpp" />
     <ClCompile Include="PieceSymbols.cpp" />
@@ -157,6 +158,7 @@
     <ClInclude Include="Functions.hpp" />
     <ClInclude Include="Guard.hpp" />
     <ClInclude Include="Name.hpp" />
+    <ClInclude Include="PathMoveValidator.hpp" />
     <ClInclude Include="Piece.hpp" />
     <ClInclude Include="PieceEnums.hpp" />
     <ClInclude Include="PiecePosition.hpp" />

@@ -130,7 +130,7 @@ void Board::display()
 	// Grid & Row labels
 	for (int i = 7; i >= 0; i--)
 	{
-		cout << labels[0][7 - i] << ' ';	// Labels
+		cout << labels[0][i] << ' ';	// Labels
 
 		// Grid
 		for (int j = 0; j < 8; j++)

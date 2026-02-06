@@ -117,6 +117,9 @@
     <ClCompile Include="PieceSymbols.cpp">
       <Filter>Source Files\Objects\Pieces\PieceInterfaces</Filter>
     </ClCompile>
+    <ClCompile Include="PathMoveValidator.cpp">
+      <Filter>Source Files\Logic\MoveValidation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Name.hpp">
@@ -166,6 +169,9 @@
     </ClInclude>
     <ClInclude Include="PieceSymbols.hpp">
       <Filter>Header Files\Objects\Pieces\PieceInterfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="PathMoveValidator.hpp">
+      <Filter>Header Files\Logic\MoveValidation</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
