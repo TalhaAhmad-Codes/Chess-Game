@@ -18,9 +18,6 @@ int main()
 
         piece.move(Utils::Position(row - 1, column + 1));
         piece.display_info();
-
-        piece.move(Utils::Position(row + 2, column));
-        piece.display_info();
     }
     catch (const Shield::DomainException ex) {
         std::cout << "\nError:\t" << ex.what() << std::endl;

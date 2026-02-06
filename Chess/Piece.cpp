@@ -98,6 +98,13 @@ void Piece::move(const Position& target)
 	is_moved = true;
 }
 
+// Method - Undo the piece
+void Piece::undo()
+{
+	// Updated soon!
+}
+
+// Display piece info
 void Piece::display_info()
 {
 	// Variables
