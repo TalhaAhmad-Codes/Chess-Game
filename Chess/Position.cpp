@@ -89,16 +89,14 @@ Position Position::abs_difference(const Position& left, const Position& right)
 	return Position(row, column);
 }
 
-// Method - Convert Label -> Position
+// Method - Convert Label <-> Position
 Position Position::to_position(const string& label)
 {
 	Guard::against_regex_mismatch(Regex::LabelPosition(), label);
 
 	// Getting row and column
-	int row = label[1], column = label[0];
-
-	// Calculating values
-	row -= '1'; column -= 'a';
+	int row = label[1] - '1',
+		column = label[0] - 'a';
 
 	// Creating a position object
 	return Position(row, column);
@@ -108,11 +106,13 @@ string Position::to_labeled_position(const Position& position)
 {
 	position.against_negative_value();
 
-	char row = '1', column = 'a';
-	row += position.get_row();
-	column += position.get_column();
+	char column = 'a' + position.get_column();
+	char row = '1' + position.get_row(); // reverse inversion
 
-	string label = string(column, 1) + string(row, 1);
+	string label;
+	label += column;
+	label += row;
+
 	return label;
 }
 

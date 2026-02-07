@@ -26,7 +26,7 @@ int main()
         // Placing piece onto board
         Utils::Position position(4, 4);
         auto cell = board.get_cell(position);
-        cell->place_piece(new Entity::Piece(Interface::PieceType::BISHOP, Interface::PieceGroup::WHITE, position));
+        cell->place_piece(new Entity::Piece(Interface::PieceType::KNIGHT,Interface::PieceGroup::WHITE,position));
 
         // Status initial value
         Status status;
@@ -50,18 +50,7 @@ int main()
             {
                 // Piece movement
                 std::string label_position;
-                Utils::Position from, to;
-                
-                std::cout << "Piece Position: ";
-                std::cin >> label_position;
-                from = Utils::Position::to_position(label_position);
-
-                if (board.get_cell(from)->is_empty())
-                {
-                    std::cout << "Empty Cell!" << std::endl;
-                    _getch();
-                    continue;
-                }
+                Utils::Position from = status.To, to;
 
                 std::cout << "Target Position: ";
                 std::cin >> label_position;
@@ -74,8 +63,6 @@ int main()
 
                 // Move the piece
                 board.move_piece(from, to);
-
-                _getch();
             }
             catch (const Shield::DomainException& ex)
             {
@@ -88,10 +75,9 @@ int main()
         std::cout << "\nError:\t" << ex.what() << std::endl;
     }
 
-    /*Utils::Position from(4, 4), to(0, 7), offset = to - from;
-    from.display("From:\t");
-    to.display("To:\t");
-    offset.display("Offset:\t");*/
+    /*auto position = Utils::Position::to_position("e4");
+    position.display("Position:\t");
+    std::cout << "Label:\t" << Utils::Position::to_labeled_position(position) << std::endl;*/
 }
 
 void sfml_demo(const unsigned int& resolution)
