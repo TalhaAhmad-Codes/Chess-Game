@@ -2,7 +2,9 @@
 #include <iostream>
 #include "Position.hpp"
 #include "Guard.hpp"
+#include "Regex.hpp"
 
+using namespace std;
 using namespace Utils;
 using namespace Shield;
 
@@ -87,6 +89,33 @@ Position Position::abs_difference(const Position& left, const Position& right)
 	return Position(row, column);
 }
 
+// Method - Convert Label -> Position
+Position Position::to_position(const string& label)
+{
+	Guard::against_regex_mismatch(Regex::LabelPosition(), label);
+
+	// Getting row and column
+	int row = label[1], column = label[0];
+
+	// Calculating values
+	row -= '1'; column -= 'a';
+
+	// Creating a position object
+	return Position(row, column);
+}
+
+string Position::to_labeled_position(const Position& position)
+{
+	position.against_negative_value();
+
+	char row = '1', column = 'a';
+	row += position.get_row();
+	column += position.get_column();
+
+	string label = string(column, 1) + string(row, 1);
+	return label;
+}
+
 // Method - Guard against negative value
 void Position::against_negative_value() const
 {
@@ -95,7 +124,7 @@ void Position::against_negative_value() const
 }
 
 // Method - Display position
-void Position::display(const std::string& message)
+void Position::display(const string& message)
 {
-	std::cout << message << '(' << row << ", " << column << ')' << std::endl;
+	cout << message << '(' << row << ", " << column << ')' << endl;
 }

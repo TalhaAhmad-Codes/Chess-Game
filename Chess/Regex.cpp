@@ -33,3 +33,11 @@ Pattern Regex::Name()
 		"Name can only contain alphanumeric characters and must start with an alphabet. Its size limit is from 3 to 20 characters."
 	);
 }
+
+Pattern Regex::LabelPosition()
+{
+	return Pattern(
+		"^[a-h][1-8]$",
+		"Labeled position must be in range (a, h) and (1, 8)."
+	);
+}

@@ -14,7 +14,8 @@ using namespace Interface;
 // Constructor
 Board::Board()
 {
-	reset();
+	//reset();
+	clear();
 }
 
 // Getters

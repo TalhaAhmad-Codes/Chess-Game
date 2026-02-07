@@ -25,5 +25,6 @@ namespace Utils
 	{
 	public:
 		static Utils::Pattern Name();
+		static Utils::Pattern LabelPosition();
 	};
 }

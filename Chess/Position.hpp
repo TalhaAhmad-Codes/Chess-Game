@@ -34,6 +34,10 @@ namespace Utils
 		// Method - Get absolute difference
 		static Position abs_difference(const Position&, const Position&);
 
+		// Method - Convert labeled position to actual position object
+		static Position to_position(const std::string&);
+		static std::string to_labeled_position(const Position&);	// vice versa
+
 		// Method - Guard against negative value
 		void against_negative_value() const;
 
