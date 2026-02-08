@@ -10,7 +10,6 @@ using namespace Entity;
 using namespace Shield;
 using namespace Interface;
 
-
 /*// Piece class -- Implementation //*/
 
 // Constructors

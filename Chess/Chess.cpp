@@ -2,10 +2,9 @@
 #include <SFML/Graphics.hpp>
 #include <conio.h>
 
-#include "Player.hpp"
 #include "DomainException.hpp"
 #include "Position.hpp"
-
+#include "Player.hpp"
 #include "Piece.hpp"
 #include "Board.hpp"
 

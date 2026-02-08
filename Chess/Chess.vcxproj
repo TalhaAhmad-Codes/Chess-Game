@@ -156,6 +156,9 @@
     <ClInclude Include="Cell.hpp" />
     <ClInclude Include="DomainException.hpp" />
     <ClInclude Include="Functions.hpp" />
+    <ClInclude Include="Game.hpp" />
+    <ClInclude Include="Match.cpp" />
+    <ClInclude Include="Match.hpp" />
     <ClInclude Include="Guard.hpp" />
     <ClInclude Include="Name.hpp" />
     <ClInclude Include="PathMoveValidator.hpp" />

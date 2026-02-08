@@ -67,6 +67,12 @@
     <Filter Include="Source Files\Objects\Board">
       <UniqueIdentifier>{0151394b-f51d-4b83-a192-50b0b928eb6d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Logic\Game">
+      <UniqueIdentifier>{f1e8668d-0394-41f4-911a-4fdd6def042f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Logic\Game">
+      <UniqueIdentifier>{cab84ed5-df5b-4eab-8f6e-0c98e03e9d72}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Chess.cpp">
@@ -175,6 +181,15 @@
     </ClInclude>
     <ClInclude Include="ValidationResult.hpp">
       <Filter>Header Files\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Match.hpp">
+      <Filter>Header Files\Logic\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.hpp">
+      <Filter>Header Files\Logic\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Match.cpp">
+      <Filter>Source Files\Logic\Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

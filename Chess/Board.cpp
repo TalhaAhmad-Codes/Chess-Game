@@ -1,10 +1,12 @@
 #include <iostream>
+#include "PathMoveValidator.hpp"
 #include "DomainException.hpp"
 #include "PieceSymbols.hpp"
 #include "Board.hpp"
 
 using namespace std;
 using namespace Utils;
+using namespace Logic;
 using namespace Entity;
 using namespace Shield;
 using namespace Interface;
@@ -49,19 +51,33 @@ void Board::place_piece(Piece* piece, const Position& position)
 	cell->place_piece(piece);
 }
 
-ValidationResult Board::move_piece(const Position& from, const Position& to)
+ValidationResult Board::move_piece(Position& from, Position& to)
 {
 	auto source = get_cell(from), destination = get_cell(to);
 	
 	// If there's no piece
 	if (source->is_empty())
-		throw DomainException("No piece found at given position.");
+		return ValidationResult::EMPTY_CELL;
 	
 	auto piece = source->get_piece();
 	
+	// Check for path
+	ValidationResult result = PathMoveValidator::is_path_clear(from, to, *this, piece->get_type());
+
+	if (result == ValidationResult::UNCLEAR_PATH)
+	{
+		if (get_cell(to)->get_piece()->get_group() == piece->get_group())
+			return result;
+	}
+	else
+	{
+		get_cell(to)->make_empty();
+	}
+
 	try
 	{
-		auto result = piece->move(to);
+		result = piece->move(to);
+		
 		if (result == ValidationResult::OK)
 		{
 			source->make_empty();
