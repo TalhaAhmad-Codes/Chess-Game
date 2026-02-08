@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Cell.hpp"
+#include "ValidationResult.hpp"
 
 namespace Entity
 {
@@ -26,7 +27,7 @@ namespace Entity
 		void place_piece(Piece*, const Utils::Position&);
 
 		// Method - Move a piece from one position to another
-		void move_piece(const Utils::Position&, const Utils::Position&);
+		Utils::ValidationResult move_piece(const Utils::Position&, const Utils::Position&);
 
 		// Method - Initialize / Reset the grid of the board
 		void reset();

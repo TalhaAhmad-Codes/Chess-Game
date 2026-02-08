@@ -1,14 +1,14 @@
 #include <iostream>
+#include "BaseMoveValidator.hpp"
 #include "DomainException.hpp"
 #include "Piece.hpp"
-#include "BaseMoveValidator.hpp"
 
 using namespace std;
-using namespace Entity;
 using namespace Utils;
+using namespace Logic;
+using namespace Entity;
 using namespace Shield;
 using namespace Interface;
-using namespace Logic;
 
 
 /*// Piece class -- Implementation //*/
@@ -68,22 +68,22 @@ bool Piece::is_valid_move(const Position& target) const
 	switch (type)
 	{
 		case PieceType::PAWN:
-			validity = BaseMoveValidator::pawn_validation(current, target, group);
+			validity = BaseMoveValidator::pawn_validation(current, target, group) == ValidationResult::INVALID_MOVE;
 			break;
 		case PieceType::BISHOP:
-			validity = BaseMoveValidator::bishop_validation(current, target);
+			validity = BaseMoveValidator::bishop_validation(current, target) == ValidationResult::INVALID_MOVE;
 			break;
 		case PieceType::ROOK:
-			validity = BaseMoveValidator::rook_validation(current, target);
+			validity = BaseMoveValidator::rook_validation(current, target) == ValidationResult::INVALID_MOVE;
 			break;
 		case PieceType::KNIGHT:
-			validity = BaseMoveValidator::knight_validation(current, target);
+			validity = BaseMoveValidator::knight_validation(current, target) == ValidationResult::INVALID_MOVE;
 			break;
 		case PieceType::QUEEN:
-			validity = BaseMoveValidator::queen_validation(current, target);
+			validity = BaseMoveValidator::queen_validation(current, target) == ValidationResult::INVALID_MOVE;
 			break;
 		case PieceType::KING:
-			validity = BaseMoveValidator::king_validation(current, target);
+			validity = BaseMoveValidator::king_validation(current, target) == ValidationResult::INVALID_MOVE;
 			break;
 	}
 
@@ -98,13 +98,14 @@ void Piece::against_none_group(PieceGroup& group)
 }
 
 // Method - Move the piece
-void Piece::move(const Position& target)
+ValidationResult Piece::move(const Position& target)
 {
-	if (!is_valid_move(target))
-		throw DomainException("The move is invalid.");
+	if (is_valid_move(target) == ValidationResult::INVALID_MOVE)
+		return ValidationResult::INVALID_MOVE;
 
-	//position.move(target);
+	position.move(target);
 	is_moved = true;
+	return ValidationResult::OK;
 }
 
 // Method - Undo the piece

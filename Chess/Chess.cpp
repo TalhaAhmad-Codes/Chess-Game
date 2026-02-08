@@ -45,30 +45,37 @@ int main()
 
             // Display Board
             board.display(); std::cout << std::endl;
+            std::cout << "Piece:\t" << Utils::Position::to_labeled_position(position) << "\n\n";
 
             try
             {
+                auto difference = Utils::Position::abs_difference(status.To, status.From);
+                difference.display("Difference:\t");
+
                 // Piece movement
                 std::string label_position;
-                Utils::Position from = status.To, to;
+                Utils::Position from = position, to;
 
                 std::cout << "Target Position: ";
                 std::cin >> label_position;
                 to = Utils::Position::to_position(label_position);
 
+                // Move the piece
+                auto result = board.move_piece(from, to);
+
                 // Update status
                 status.From = from;
                 status.To = to;
-                status.Validity = true;
-
-                // Move the piece
-                board.move_piece(from, to);
+                status.Validity = result == Utils::ValidationResult::OK;
             }
             catch (const Shield::DomainException& ex)
             {
                 //std::cout << "\nError:\t" << ex.what() << std::endl;
                 status.Validity = false;
             }
+
+            if (status.Validity)
+                position = status.To;
         }
     }
     catch (const Shield::DomainException& ex) {

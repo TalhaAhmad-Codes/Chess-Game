@@ -2,6 +2,7 @@
 
 #include "PieceEnums.hpp"
 #include "PiecePosition.hpp"
+#include "ValidationResult.hpp"
 
 namespace Entity
 {
@@ -34,7 +35,7 @@ namespace Entity
 		bool alive() const;
 
 		// Method - Move the piece
-		void move(const Utils::Position&);
+		Utils::ValidationResult move(const Utils::Position&);
 		void undo();	// Undo the piece
 
 		// Method - Display piece information

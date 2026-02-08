@@ -173,5 +173,8 @@
     <ClInclude Include="PathMoveValidator.hpp">
       <Filter>Header Files\Logic\MoveValidation</Filter>
     </ClInclude>
+    <ClInclude Include="ValidationResult.hpp">
+      <Filter>Header Files\Misc</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

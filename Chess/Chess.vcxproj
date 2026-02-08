@@ -169,6 +169,7 @@
     <ClInclude Include="Regex.hpp" />
     <ClInclude Include="Score.hpp" />
     <ClInclude Include="BaseMoveValidator.hpp" />
+    <ClInclude Include="ValidationResult.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

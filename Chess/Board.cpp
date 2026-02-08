@@ -49,7 +49,7 @@ void Board::place_piece(Piece* piece, const Position& position)
 	cell->place_piece(piece);
 }
 
-void Board::move_piece(const Position& from, const Position& to)
+ValidationResult Board::move_piece(const Position& from, const Position& to)
 {
 	auto source = get_cell(from), destination = get_cell(to);
 	
@@ -61,14 +61,21 @@ void Board::move_piece(const Position& from, const Position& to)
 	
 	try
 	{
-		piece->move(to);
-		source->make_empty();
-		destination->place_piece(piece);
+		auto result = piece->move(to);
+		if (result == ValidationResult::OK)
+		{
+			source->make_empty();
+			destination->place_piece(piece);
+		}
+		else
+			return result;
 	}
 	catch (const DomainException& ex)
 	{
 		throw DomainException(ex.what());
 	}
+
+	return ValidationResult::OK;
 }
 
 // Method - Clear the board
