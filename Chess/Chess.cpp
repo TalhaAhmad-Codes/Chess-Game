@@ -24,9 +24,9 @@ int main()
         Entity::Board board;
         
         // Placing piece onto board
-        Utils::Position position(4, 4);
+        Utils::Position position(6, 4);
         auto cell = board.get_cell(position);
-        cell->place_piece(new Entity::Piece(Interface::PieceType::BISHOP, Interface::PieceGroup::WHITE, position));
+        cell->place_piece(new Entity::Piece(Interface::PieceType::PAWN, Interface::PieceGroup::BLACK, position));
 
         // Status initial value
         Status status;

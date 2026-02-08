@@ -167,18 +167,16 @@ ValidationResult BaseMoveValidator::king_validation(const Position& from, const 
 
 	if (row == column)
 	{
-		if (row != 1)	// (1, 1)
-			return ValidationResult::INVALID_MOVE;
+		if (row == 1)	// (1, 1)
+			return ValidationResult::OK;
 	}
 	else
 	{
-		if (row == 0 && column != 1)	// (0, 1)
-			return ValidationResult::INVALID_MOVE;
-		else if (column == 0 && row != 1)	 // (1, 0)
-			return ValidationResult::INVALID_MOVE;
-		else
-			return ValidationResult::INVALID_MOVE;
+		if (row == 0 && column == 1)	// (0, 1)
+			return ValidationResult::OK;
+		else if (column == 0 && row == 1)	 // (1, 0)
+			return ValidationResult::OK;
 	}
 
-	return ValidationResult::OK;
+	return ValidationResult::INVALID_MOVE;
 }

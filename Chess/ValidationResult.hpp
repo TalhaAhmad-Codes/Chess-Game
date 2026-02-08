@@ -7,6 +7,7 @@ namespace Utils
 		// Basic
 		OK = 0,
 		INVALID_MOVE = 1,
-		PATH_UNCLEAR = 2
+		UNCLEAR_PATH = 2,
+		EMPTY_CELL = 3
 	};
 }

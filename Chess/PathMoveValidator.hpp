@@ -1,5 +1,6 @@
 #pragma once
 
+#include "ValidationResult.hpp"
 #include "Board.hpp"
 
 namespace Logic
@@ -14,6 +15,6 @@ namespace Logic
 		static std::vector<Utils::Position> get_queen_path(Utils::Position&, Utils::Position&);
 		static std::vector<Utils::Position> get_king_path(Utils::Position&, Utils::Position&);
 	public:
-		static bool is_path_clear(Utils::Position&, Utils::Position&, Entity::Board&, Interface::PieceType);
+		static Utils::ValidationResult is_path_clear(Utils::Position&, Utils::Position&, Entity::Board&, Interface::PieceType);
 	};
 }
